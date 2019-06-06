@@ -1,13 +1,10 @@
 # 一种快速将将10进制转换为二进制的方法
 
-今天本来无意中发现`Number`的`toString`方法不是完全的继承自`Object`原型上，而是可以给其传参数，
-这就引起了我比较大的兴趣。我就想知道这个传入的参数到底有啥用？还有`Number`上的`toString`方
-法到底和`Object`上的`toString`方法有啥区别。
+今天本来无意中发现`Number`的`toString`方法不是完全的继承自`Object`原型上，而是可以给其传参数，这就引起了我比较大的兴趣。我就想知道这个传入的参数到底有啥用？还有`Number`上的`toString`方法到底和`Object`上的`toString`方法有啥区别。
 
 ## 不同数据类型的toString方法分别返回啥
 
-1. `Object` 对象的`toString` 返回的就是表示对象数据类型的字符串 `[object Object]`,进
-而我们可以根据对象`toString`方法使用`Object.prototype.toString.call([arry | number | string | ...])` 来达到精确判断数据类型的功能比如：
+1. `Object` 对象的`toString` 返回的就是表示对象数据类型的字符串 `[object Object]`,进而我们可以根据对象`toString`方法使用`Object.prototype.toString.call([arry | number | string | ...])` 来达到精确判断数据类型的功能比如：
 
     ```javascript
     const a = []
@@ -56,4 +53,15 @@ var a = 1
 a.toString() // 1
 ```
 
-看起来好像也没有什么神奇的地方啊
+看起来好像也没有什么神奇的地方啊~也就是纯粹的将number转换为字符串而已，别着急看看下面的例子
+
+```javascript
+var a = 2
+a.toString(2) // 10
+```
+
+是不是很神奇这里直接将10进制的数转换为了二进制数的字符串表示，根据规定这里toString的参数为要转换的进制范围为2-36，利用这个特性我们很容易的就可以将一个10进制的数转换为任意2-36进制。
+
+其实这里的转换规则还有其他规定感兴趣的可以看看MDN和ECMA的具体规定
+
+[MDN中关于Number.prototype.toString的介绍](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
