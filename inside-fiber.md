@@ -12,11 +12,13 @@ React的官方文档对此提供了一个很好地高级概述：React元素、�
 这是一系列教你理解React内部原理的文章的第一篇。在本文中，我想提供与算法相关的重要概念和数据结构的深入概述，一旦我们了解了足够的背景知识，我们将会探索用于递归和解析fiber树的算法和主要函数。此系列的下一篇文章将演示React如何使用该算法执行初始渲染和处理state以及props更新。从那里我们将继续讨论调度程序的细节，子调解进程，以及建立Effect list的机制。
 
 ## 继续 ##
+
 我将带你一起了解一些React的高级知识🧙‍。我鼓励你阅读它以了解Concurrent React内部工作背后的魔力。而且这一系列的文章也能作为想React开源项目贡献的指南。我非常相信逆向工程，因此最新版本16.6.0中的源代码会有很多链接。
 
 这里包含很多内容，所有如果你不能马上理解的话不要感到有压力。这些内容值得你花时间去了解。注意如果只是为了能熟练使用React，那么你没必要了解这些内容。这篇文章是为了
 
-## 设置背景 ## 
+## 设置背景 ##
+
 这里有一个简单的例子我将贯穿这一系列文章。屏幕上为一个递增的按钮。
 
 ![picture](http://ww4.sinaimg.cn/large/006tNc79gy1g5p8b2lejng305u01wq3m.gif)
@@ -46,5 +48,7 @@ class ClickCounter extends React.Component {
     }
 }
 ```
+
+你可以在[此处](https://stackblitz.com/edit/react-t4rdmh)进行在线查看，正如你所见，这只是一个简单包含`span`和`button`元素的组件。单击该按钮后，组件的状态将在处理程序内更新。反过来，这会导致span元素的文本更新。
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
