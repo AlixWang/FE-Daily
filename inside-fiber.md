@@ -9,7 +9,7 @@ React的官方文档对此提供了一个很好地高级概述：React元素、�
 
 > 这篇文章如果没有[Dan Abramov](https://medium.com/@dan_abramov)的帮助的话一定会花费更多的时间，而且没有如此全面。
 
-这是一系列教你理解React内部原理的文章的第一篇。在本文中，我想提供与算法相关的重要概念和数据结构的深入概述，一旦我们了解了足够的背景知识，我们将会探索用于递归和解析fiber树的算法和主要函数。此系列的下一篇文章将演示React如何使用该算法执行初始渲染和处理state以及props更新。从那里我们将继续讨论调度程序的细节，子调解进程，以及建立Effect list的机制。
+这是一系列教你理解React内部原理的文章的第一篇。在本文中，我想提供与算法相关的重要概念和数据结构的深入概述，一旦我们了解了足够的背景知识，我们将会探索用于递归和解析fiber树的算法和主要函数。此系列的下一篇文章将演示React如何使用该算法执行初始渲染和处理state以及props更新。从那里我们将继续讨论调度程序的细节，子调解(reconciliation)进程，以及建立Effect list的机制。
 
 ## 继续 ##
 
@@ -51,13 +51,13 @@ class ClickCounter extends React.Component {
 
 你可以在[此处](https://stackblitz.com/edit/react-t4rdmh)进行在线查看，正如你所见，这只是一个简单包含`span`和`button`元素的组件。单击该按钮后，组件的状态将在处理程序内更新。反过来，这会导致span元素的文本更新。
 
-这里有几种React会在调解过程中会执行的操作。例如，以下是React在我们的简单应用程序中的第一次渲染和状态更新之后执行的高级操作：
+这里有几种React会在(reconciliation)调解过程中会执行的操作。例如，以下是React在我们的简单应用程序中的第一次渲染和状态更新之后执行的高级操作：
 
 + 在`ClickCounter`组件`state`中更新`count`属性
 + 检索和比较`ClickCounter`组件的`Children`和`Props`
 + 更新`span`元素的`props`
 
-在调解的过程中还有一些其他操作被执行例如调用生命周期函数及更新`reef`，所有这些活动在`Fiber`架构中统称为“`work`”。`work`的类型通常都取决于React组件的类型。列如，对于Class组件，React需要去创建实例，但对于函数式组件来说却并不会。正如你所知，在React里面有多种组件类型。例如：class和函数式组件，宿主组件、`portals`等。React组件类型是由`createElement`函数的第一个参数决定的。这个函数通常被用于在`render`方法中创建组件元素。
+在(reconciliation)调解的过程中还有一些其他操作被执行例如调用生命周期函数及更新`reef`，所有这些活动在`Fiber`架构中统称为“`work`”。`work`的类型通常都取决于React组件的类型。列如，对于Class组件，React需要去创建实例，但对于函数式组件来说却并不会。正如你所知，在React里面有多种组件类型。例如：class和函数式组件，宿主组件、`portals`等。React组件类型是由`createElement`函数的第一个参数决定的。这个函数通常被用于在`render`方法中创建组件元素。
 
 在我们探索`Fiber`架构之前，先让我们熟悉一下React内部的数据结构。
 
@@ -123,7 +123,22 @@ class ClickCounter {
 ]
 ```
 
-我们可以看到React为这些对象添加了`$$typeof`属性唯一的将他们标识为React元素。用`type`、`key`和`props`描述此对象。而他们的值就是你通过`React.createElement`传过来的值。
+我们可以看到React为这些对象添加了`$$typeof`属性唯一的将他们标识为React元素。用`type`、`key`和`props`描述此对象。而他们的值就是你通过`React.createElement`传过来的值。请注意React如何将文本内容表示为`span`和按钮节点的子项。和`click`的监听函数是如何作为`button`元素的`props`。React其他方面比如`ref`字段就超出了本文的讨论范围。
 
+`ClickCounter`的React元素并没有任何的`props`和`key`:
+
+```javascript
+{
+    $$typeof: Symbol(react.element),
+    key: null,
+    props: {},
+    ref: null,
+    type: ClickCounter
+}
+```
+
+## Fiber节点 ##
+
+在调解(reconciliation)期间React组件的`render`方法返回的数据会被合并进入fiber节点树中。与React组件不一样，fiber不会再每个渲染周期内重新创建。他们是包含组件状态和DOM节点的可变数据结构。
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
