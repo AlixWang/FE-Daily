@@ -57,7 +57,7 @@ class ClickCounter extends React.Component {
 + 检索和比较`ClickCounter`组件的`Children`和`Props`
 + 更新`span`元素的`props`
 
-在(reconciliation)调解的过程中还有一些其他操作被执行例如调用生命周期函数及更新`reef`，所有这些活动在`Fiber`架构中统称为“`work`”。`work`的类型通常都取决于React组件的类型。列如，对于Class组件，React需要去创建实例，但对于函数式组件来说却并不会。正如你所知，在React里面有多种组件类型。例如：class和函数式组件，宿主组件、`portals`等。React组件类型是由`createElement`函数的第一个参数决定的。这个函数通常被用于在`render`方法中创建组件元素。
+在(reconciliation)调解的过程中还有一些其他操作被执行例如调用生命周期函数及更新`reef`，所有这些活动在`Fiber`架构中统称为“`work`”。`work`的类型通常都取决于React组件的类型。列如，对于Class组件，React需要去创建实例，但对于函数式组件来说却并不会。正如你所知，在React里面有多种组件类型。例如：class和函数式组件，原生组件(DOM)、`portals`等。React组件类型是由`createElement`函数的第一个参数决定的。这个函数通常被用于在`render`方法中创建组件元素。
 
 在我们探索`Fiber`架构之前，先让我们熟悉一下React内部的数据结构。
 
@@ -140,5 +140,12 @@ class ClickCounter {
 ## Fiber节点 ##
 
 在调解(reconciliation)期间React组件的`render`方法返回的数据会被合并进入fiber节点树中。与React组件不一样，fiber不会再每个渲染周期内重新创建。他们是包含组件状态和DOM节点的可变数据结构。
+
+前文说过React根据组件的不同类型，框架会执行不同的动作。在我们的简单示例中，对于`class`组件`ClickCounter`来说会调用生命周期函数和`render`方法，而对于`span`原生类型(DOM Node)的组件来说其会响应DOM的改变。因此，每个React元素都会转换为相应类型的Fibre节点，用于描述需要完成的工作。
+
+您可以将Fiber视为代表某些工作要做的数据结构，换句话说，就是一个工作单元
+，Fiber架构也提供了简便的方法去追踪、调度、暂停和取消工作进程。
+
+当一个React组件第一次转变为Fiber节点的时候，React使用元素中的数据在createFiberFromTypeAndProps函数中创建Fiber。在随后的更新中，React重用Fiber节点，并使用来自相应React元素的数据更新必要的属性。
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
