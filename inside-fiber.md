@@ -156,10 +156,26 @@ class ClickCounter {
 
 所有的Fiber Nodes 都通过 `child sibling return`链接成一个链表。可以通过阅读我的这篇文章[The how and why on React’s usage of linked list in Fiber](https://medium.com/dailyjs/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7)来了解为什么要使用链表的原因。
 
-## Current 树和work in progress树 ## 
+## Current 树和workinprogress树 ##
 
+在首次渲染过后，React最终得到了一个Fiber树，它反映了用于呈现UI的应用状态。这种Fiber树通常被简称为Current树。当React开始进行状态更新时，它产生的树叫做workInProgress树其反映了将来要被渲染到屏幕上的React应用状态。
 
+所有的工作都在`workInProgress`的`Fiber`树上执行，当`React`遍历`Current`树时，对于每个现有Fiber节点，它会创建一个构成`workInProgress`树的备用节点。这个节点是通过`Render`方法返回的数据创建的。当更新被执行且所有相关的工作的完成的时候，React会产生一个备用树去刷新当前屏幕，而当`workInProgress`树的状态更新到屏幕上之后，它就成了`Current`树。(可以看出`Current`树会被`workInPorgress`树取代)。
 
+`React`的中心思想之一就是一致性，`React`总是一次性的更新完所有的DOM节点，它不会部分的更新。`workInProgree`树就像是一个草稿对于用户来说其是不可见的，所一`React`可以先对所有的组件进行处理（状态更新、执行生命周期函数、操作DOM元素等等）然后一次性的刷新屏幕。
 
+在源代码中你可以看见有很多函数从`Current`树和`workInProgress`树种获取`Fiber`节点。下面展示的是其中一个函数:
+
+```javascript
+function updateHostComponent(current, workInProgress, renderExpirationTime) {...}
+```
+
+每个`Fiber`节点都保持对备用字段中其他树的对应的引用。`Current`树中的节点指向`workInProgree`树种的节点，反之亦然。
+
+## 副作用 ##
+
+我们可以把React中的组件想象成一个用`state`和`props`来计算和表示UI的函数。剩下来的其他功能比如操作DOM或者执行生命周期函数都可以认为是副作用。在React的[官方文档](https://reactjs.org/docs/hooks-overview.html#%EF%B8%8F-effect-hook)中解释了副作用.
+
+你原来一定在React组件中执行过获取数据、订阅事件、或者手动操作DOM等。我们把这些操作称之为副作用是因为他们将影响其他组件，并且不能再渲染阶段完成。
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
