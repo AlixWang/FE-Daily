@@ -146,6 +146,20 @@ class ClickCounter {
 您可以将Fiber视为代表某些工作要做的数据结构，换句话说，就是一个工作单元
 ，Fiber架构也提供了简便的方法去追踪、调度、暂停和取消工作进程。
 
-当一个React组件第一次转变为Fiber节点的时候，React使用元素中的数据在createFiberFromTypeAndProps函数中创建Fiber。在随后的更新中，React重用Fiber节点，并使用来自相应React元素的数据更新必要的属性。
+当一个React组件第一次转变为Fiber节点的时候，React使用元素中的数据在createFiberFromTypeAndProps函数中创建Fiber。在随后的更新中，React重用Fiber节点，并使用来自相应React元素的数据更新必要的属性。如果不再从render方法返回相应的React元素，React可能还需要根据key prop移动层次结构中的节点或删除它。
+
+查看[**ChildReconciler**](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactChildFiber.js#L239)函数查看`React`为现有Fieber节点执行的所有活动和函数。
+
+因为React为每个元素创建了一个Fiber节点，因为这些这些元素组成了一个树，所以我们得到了一个Fiber节点组成的树。在`ClickCounter`示例中fiber树形如下图：
+
+![image-1.png](https://tupp.xyz/2019/08/09/15653219085d4ceab46c3c7.png)
+
+所有的Fiber Nodes 都通过 `child sibling return`链接成一个链表。可以通过阅读我的这篇文章[The how and why on React’s usage of linked list in Fiber](https://medium.com/dailyjs/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7)来了解为什么要使用链表的原因。
+
+## Current 树和work in progress树 ## 
+
+
+
+
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
