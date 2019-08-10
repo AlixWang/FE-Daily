@@ -220,6 +220,111 @@ const hostRootFiberNode = fiberRoot.current
 ```
 
 这个Fiber树以一个名为`HostRoot`的[特殊类型](https://github.com/facebook/react/blob/cbbc2b6c4d0d8519145560bd8183ecde55168b12/packages/shared/ReactWorkTags.js#L34)的fiber节点作为起点。
-它是在内部创建的，并充当最顶层组件的父级。
+它是在内部创建的，并充当最顶层组件的父级。`HostRoot Fiber`节点通过`stateNode`属性指向到`FiberRoot`：
+
+```javascript
+fiberRoot.current.stateNode === fiberRoot; // true
+```
+
+你可以通过`fiber root`最顶部的`HostFiber`节点来探索整个`fiber`树。或者你可以通过一个像下面这样的组件实例来查看其本身的`fiber`节点。
+
+```javascript
+compInstance._reactInternalFiber
+```
+
+## Fiber节点的结构 ##
+
+让我们看看`ClickCounter`组件所创建的`Fiber`节点长啥样。
+
+```javascript
+{
+    stateNode: new ClickCounter,
+    type: ClickCounter,
+    alternate: null,
+    key: null,
+    updateQueue: null,
+    memoizedState: {count: 0},
+    pendingProps: {},
+    memoizedProps: {},
+    tag: 1,
+    effectTag: 0,
+    nextEffect: null
+}
+```
+
+`span`元素
+
+```javascript
+{
+    stateNode: new HTMLSpanElement,
+    type: "span",
+    alternate: null,
+    key: "2",
+    updateQueue: null,
+    memoizedState: null,
+    pendingProps: {children: 0},
+    memoizedProps: {children: 0},
+    tag: 5,
+    effectTag: 0,
+    nextEffect: null
+}
+```
+
+`Fiber`节点中有许多的字段，我在前面的章节中已经介绍了`alternate effectTag nextEffect`分别有什么作用，接下来我将其他字段都有啥作用。
+
+### sateNode ###
+
+保存对组件的类实例，DOM节点或与`Fiber`节点关联的其他类型React元素的引用。总的来说，我们可以说这个属性是用来将元素状态和`Fiber`节点进行关联。
+
+### type ###
+
+定义与此`Fiber`节点相关联的函数组件或者class组件，对于class组件来说指向其构造函数，对于DOM元素来说指向其`HTML`标签。我通常根据这个字段来判断当前`Fiber`组件与什么类型的React元素相关。
+
+### tag ###
+
+定义了`Fiber`节点的[类型](https://github.com/facebook/react/blob/769b1f270e1251d9dbdce0fcbd9e92e502d059b8/packages/shared/ReactWorkTags.js),其用于在调解（reconciliation）算法中决定何种行为将被执行。在前面我们提到过，执行何种行为取决于React元素的类型。函数[createFiberFromTypeAndProps](https://github.com/facebook/react/blob/769b1f270e1251d9dbdce0fcbd9e92e502d059b8/packages/react-reconciler/src/ReactFiber.js#L414)将`React`元素映射为对应的`Fiber`类型。在我们的例子中，`ClickCounter`的`tag`属性的值为1表示是一个`ClassComponent`对于`span`元素来说其`tag`属性为5表示其是一个`HostComponent`。
+
+### updateQueue ###
+
+状态更新，回调和DOM更新的队列。
+
+### memoizedState ###
+
+对于`fiber`来说`state`用于创建屏幕输出，处理更新时，它会反映当前在屏幕上呈现的状态。
+
+### memoizedProps ###
+
+对于`fiber`来说`props`用于创建前一次渲染。
+
+### pendingProps ###
+
+已从React元素中的新数据更新并且需要应用于子组件或DOM元素。
+
+### key ###
+
+具有一组子项的唯一标识符可帮助React确定哪些项已更改，已添加或从列表中删除。它与[此处](https://reactjs.org/docs/lists-and-keys.html#keys)描述的React的“列表和键”功能有关。
+
+你可以在[这](https://github.com/facebook/react/blob/6e4f7c788603dac7fccd227a4852c110b072fe16/packages/react-reconciler/src/ReactFiber.js#L78)找到`fiber node`的所有结构。在上面我省略了许多其他的字段。比如，我没有列出`child,sibling,return`这些指针属性，这些属性构成了`fiber`的树状结构。在我的[这](https://medium.com/dailyjs/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7)篇文章中有详细的介绍。以及特定作用于`Scheduler`阶段的`expirationTime`，`childExpirationTime`和`mode`等字段。
+
+## General algorithm ##
+
+React的渲染更新主要分为两个阶段：`render`和`commit`。
+
+在第一个`render`阶段`React`通过`setState`和`React.render`将更新应用于组件并确定需要在UI中更新的内容。如果是首次渲染，React会通过`render`方法为每一个元素返回新的`fiber`节点。在接下来的更新中，`fibers`将会对那些已经存在的节点进行更新和重用。这一阶段执行的结果就是返回一个对副作用进行标记的`fiber`节点树。这些副作用代表了在接下来的`commit`阶段需要做的工作。在`commit`阶段，React采用标有效果的光纤树并将其应用于实例。它遍历`effect list`并执行DOM更新和用户可见的其他更改。
+
+重要的是要理解`render`阶段的工作可以异步执行的。React可以根据可用时间处理一个或多个`fiber`节点，然后停下来完成已完成的工作并转移到其他工作。然后它从它停止的地方继续。但有时候，它可能需要丢弃完成的工作并再次从顶部开始。由于在此阶段执行的工作不会导致任何用户可见的更改（如DOM更新），因此可以使这些暂停成为可能。相反，以下`commit`阶段始终是同步的。这是因为在此阶段执行的工作导致用户可见的变化，例如:DOM更新。这就是React需要一次完成它们的原因。
+
+调用生命周期方法是React执行的一种工作。其中一些会在`render`阶段执行，另一些会在`commit`阶段执行。下面是在第一个`render`阶段时调用的生命周期列表：
+
++ [UNSAFE_]componentWillMount (deprecated)
++ [UNSAFE_]componentWillReceiveProps (deprecated)
++ getDerivedStateFromProps
++ shouldComponentUpdate
++ [UNSAFE_]componentWillUpdate (deprecated)
++ render
+
+如您所见，在`render`阶段执行的一些遗留生命周期方法在版本16.3中标记为UNSAFE。它们现在在文档中称为遗留生命周期。它们将在未来的16.x版本中弃用，而没有UNSAFE前缀的版本将在17.0中删除。您可以在[此处](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)详细了解这些更改以及建议的迁移路径。
+
+你是否对为什么是这样子的原因感到好奇？
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
