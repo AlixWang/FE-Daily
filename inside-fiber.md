@@ -178,4 +178,48 @@ function updateHostComponent(current, workInProgress, renderExpirationTime) {...
 
 你原来一定在React组件中执行过获取数据、订阅事件、或者手动操作DOM等。我们把这些操作称之为副作用是因为他们将影响其他组件，并且不能再渲染阶段完成。
 
+我们知道大多数的`state`和`props`的改变都会导致副作用产生，由于副作用也是程序工作的一部分，`Fiber`节点是一种方便的机制，可以跟踪除更新之外的副作用。每个`Fiber`节点都可以关联相关的副作用。在`Fiber`节点中用`effectTag`表示。
+
+所以副作用在`Fiber`中表示的意思就是在组件实例完成更新后需要执行的一系列[工作](https://github.com/facebook/react/blob/b87aabdfe1b7461e7331abb3601d9e6bb27544bc/packages/shared/ReactSideEffectTags.js)。对于淡出的DOM类型的元素来说就是增、删、更新。对于class组件来说就是执行一系列的生命周期函数（`componentDidMount,componentDidUpdate`）以及更新refs。也还存在一些其他类型的Fiber节点所对应的的其他副作用。
+
+## 副作用链 ##
+
+React处理组件更新非常的快速，为了达到这种性能要求其应用了一些非常有意思的技术。其中之一就是实现了一个能快速迭代的副作用Fiber节点的线性链表。迭代这样一个链表的速度比迭代树的速度快多了，而且能排除那些没有副作用的节点。
+
+这个链表的主要目的就是标记那些具有DOM更新和其他副作用的节点。这个链表是`finishedWork`树的一个子集并且使用`nextEffect`属性替代`child`属性。在`current`和`workInProgress`树中都用到了副作用链。
+
+[Dan Abramov](https://medium.com/@dan_abramov)对于副作用链表有这样的描述：他将其比作为一颗圣诞树，并且用圣诞灯将所有的副作用节点绑定在一起。为了便于理解，让我们想象一下下面的Fiber树中那些高亮的节点有一些副作用要执行。例如，我们的某个操作导致`c2`被插入DOM，`d2`和`c1`改变某些属性，`c2`执行了一些某些生命周期函数。副作用链表将会把这些节点链接到一起所以在进行迭代的时候能排除其他的节点。
+
+![effct tree](http://ww3.sinaimg.cn/large/006tNc79ly1g5upyxehnnj30d709xmxf.jpg)
+
+你可以很直观的看见这些具有副作用的节点是怎么样被链接起来的。当进行遍历的时候React使用`firstEffect`来指向链表的首个节点。所以上面的链表可以表示为下图这样的结构：
+
+![effect list](http://ww3.sinaimg.cn/large/006tNc79ly1g5uq2tqxchj30js02vdfn.jpg)
+
+从上面的图我们可以看出来，React将会按照从子节点到父节点的顺序执行副作用。
+
+## Fiber树的根元素 ##
+
+每个React应用都有一个或多个DOM元素来作为React组件的容器。在我们的示例中是一个ID为`container`的`div`元素。
+
+```javascript
+const domContainer = document.querySelector('#container');
+ReactDOM.render(React.createElement(ClickCounter), domContainer);
+```
+
+React将会为每一个容器创建一个[fiber root](https://github.com/facebook/react/blob/0dc0ddc1ef5f90fe48b58f1a1ba753757961fc74/packages/react-reconciler/src/ReactFiberRoot.js#L31)对象,你可以通过DOM元素的引用来方位它。
+
+```javascript
+const fiberRoot = query('#container')._reactRootContainer._internalRoot
+```
+
+这个`fiber root`保存有对fiber树的引用，它存储在`fiber root`的`current`属性中。
+
+```javascript
+const hostRootFiberNode = fiberRoot.current
+```
+
+这个Fiber树以一个名为`HostRoot`的[特殊类型](https://github.com/facebook/react/blob/cbbc2b6c4d0d8519145560bd8183ecde55168b12/packages/shared/ReactWorkTags.js#L34)的fiber节点作为起点。
+它是在内部创建的，并充当最顶层组件的父级。
+
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
