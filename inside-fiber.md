@@ -1,6 +1,10 @@
-# 深入react-fiber-(react新调度算法的深入理解) #
+# 译：深入react-fiber(react新调度算法的深入理解) #
 
 ![head-picture](http://ww1.sinaimg.cn/large/006tNc79gy1g5o1la5tiej30j708caa5.jpg)
+
+## 说明 ##
+
+本文是对国外大神对于fiber架构的深入讲解文章的翻译，因为自身水平所限难免出现偏差建议结合文末原文链接进行阅读。
 
 我们都知道React是基于追踪组件状态更新并同步至屏幕上用来构建用户界面的前端库。在react中我们知道这是基于一个名叫reconciliation（调解）的过程，我们调用`setState`方法而框架内部则比较state和props的变化去重绘组件更新UI界面。
 
@@ -326,5 +330,131 @@ React的渲染更新主要分为两个阶段：`render`和`commit`。
 如您所见，在`render`阶段执行的一些遗留生命周期方法在版本16.3中标记为UNSAFE。它们现在在文档中称为遗留生命周期。它们将在未来的16.x版本中弃用，而没有UNSAFE前缀的版本将在17.0中删除。您可以在[此处](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html)详细了解这些更改以及建议的迁移路径。
 
 你是否对为什么是这样子的原因感到好奇？
+
+我们知道React在`render`阶段不会执行像DOM更新这种副作用行为，React可以异步处理与组件异步的更新（甚至可能在多个线程中执行）。然而，标有UNSAFE的生命周期经常被误解和巧妙地误用。开发人员倾向于将带有副作用的代码放在这些方法中，这可能会导致新的异步呈现方法出现问题。虽然只有没有UNSAFE前缀的生命周期方法会被删除，但它们仍然可能在即将出现的并发模式（你可以选择退出）中引起问题。
+
+下面是一些会在`commit`阶段执行的生命周期函数：
+
++ getSnapshotBeforeUpdate
++ componentDidMount
++ componentDidUpdate
++ componentWillUnmount
+
+因为这些生命周期函数是在同步的`commit`阶段执行的，他们可以执行具有副作用的代码，并且能访问到DOM。
+
+现在我们对于`fiber`树的大致流程和任务执行有了大致了解，让我们继续深入看看。
+
+## Render phase ##
+
+调解(reconciliation)算法总是通过在最顶级的`HostRoot`fiber节点上调用[renderRoot](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L1132)函数作为开始。但是React并不是每个节点都会遍历对于那些已经执行过的`fiber`节点会直接跳过知道找到没有完成的节点。例如：你在一个底层组件中调用了`setState`，那个么React会从最顶级的组件开始找起，但是会忽略掉那些无关的组件，直到找到调用的组件。
+
+## 工作循环的主要步骤 ##
+
+所有的`fiber`节点都在[工作循环](https://github.com/facebook/react/blob/f765f022534958bcf49120bf23bc1aa665e8f651/packages/react-reconciler/src/ReactFiberScheduler.js#L1136)中进行处理。下面是工作循环的同步代码的实现。
+
+```javascript
+function workLoop(isYieldy) {
+  if (!isYieldy) {
+    while (nextUnitOfWork !== null) {
+      nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+    }
+  } else {...}
+}
+```
+
+在上面的代码中`nextUnitOfWork`取得了`workInProgress`树中具有未完成工作的`fiber`节点的引用。当React对`fiber`树进行遍历时，会用`nextUnitOfWork`标记知道哪些节点有未完成的工作。处理当前光纤后，变量将包含对树中下一个光纤节点的引用如果没有的话就是`null`。之后，React退出工作循环并准备提交更改。
+
+有4个主要函数用于遍历树并启动或完成工作：
+
++ [performUnitOfWork](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L1056)
++ [beginWork](https://github.com/facebook/react/blob/cbbc2b6c4d0d8519145560bd8183ecde55168b12/packages/react-reconciler/src/ReactFiberBeginWork.js#L1489)
++ [completeUnitOfWork](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L879)
++ [completeWork](https://github.com/facebook/react/blob/cbbc2b6c4d0d8519145560bd8183ecde55168b12/packages/react-reconciler/src/ReactFiberCompleteWork.js#L532)
+
+根据下面的遍历树动画，可以搞清楚内部的工作原理。我已经在演示中使用了这些函数的简化实现。每个函数都对一个光纤节点进行了处理，当相关函数运行结束时，您可以看到当前活动的光纤节点发生了变化。您可以在视频中清楚地看到算法如何从一个分支转到另一个分支。它首先完成子节点工作，然后转移到父级元素上。
+
+![animation](http://ww4.sinaimg.cn/large/006tNc79gy1g5vumowonqg30lo0botn4.gif)
+
+注意，直线连接表示节点为兄弟关系，折线连接表示父子关系，例如b1没有子节点，而b2以一个子节点c1。
+
+[这是](https://vimeo.com/302222454)视频的链接，您可以在其中暂停播放并检查当前节点和功能状态。从概念上讲，您可以将“开始”视为“进入”某个组件，并将“完成”视为“离开”它。您还可以点击[此处](https://stackblitz.com/edit/js-ntqfil?file=index.js)的模拟代码实现，我将解释这些函数的作用。
+
+让我们从前两个函数`performUnitOfWork`和`beginWork`开始：
+
+```javascript
+function performUnitOfWork(workInProgress) {
+    let next = beginWork(workInProgress);
+    if (next === null) {
+        next = completeUnitOfWork(workInProgress);
+    }
+    return next;
+}
+
+function beginWork(workInProgress) {
+    console.log('work performed for ' + workInProgress.name);
+    return workInProgress.child;
+}
+```
+
+函数`performUnitOfWork`接受`workInProgress`fiber树，并调用`beginWork`函数。这个函数将会对所有需要执行任务的`fiber`节点启动相应任务。出于演示的目的，我们只需记录`fiber`的名称即可表示已完成工作。函数`beginWork`始终返回指向要在循环中处理的下一个子节点的指针或`null`。
+
+如果有子节点，它将被分配给`workLoop`函数中的变量`nextUnitOfWork`。如果没有子节点，`React`知道当前节点下的分支已经遍历结束，所以当前节点遍历完成。**一旦当前节点遍历完成，它将需要为兄弟节点执行`workLoop`函数并在此之后回溯到父节点。**这是在`completeUnitOfWork`函数中完成的：
+
+```javascript
+function completeUnitOfWork(workInProgress) {
+    while (true) {
+        let returnFiber = workInProgress.return;
+        let siblingFiber = workInProgress.sibling;
+
+        nextUnitOfWork = completeWork(workInProgress);
+
+        if (siblingFiber !== null) {
+            // If there is a sibling, return it
+            // to perform work for this sibling
+            return siblingFiber;
+        } else if (returnFiber !== null) {
+            // If there's no more work in this returnFiber,
+            // continue the loop to complete the parent.
+            workInProgress = returnFiber;
+            continue;
+        } else {
+            // We've reached the root.
+            return null;
+        }
+    }
+}
+
+function completeWork(workInProgress) {
+    console.log('work completed for ' + workInProgress.name);
+    return null;
+}
+```
+
+你可以看到函数的主体是一个大的`while`循环。React在`workInProgree`节点没有子节点的时候调用这个函数。当结束当前节点的工作后，他会检测当前节点是否有兄弟节点。如果找到，React退出该函数并返回指向兄弟的指针。它将被指向给`nextUnitOfWork`变量，React将从这个兄弟开始执行分支的工作.重要的是要理解，在这一点上，React只完成了前面兄弟姐妹的工作。它尚未完成父节点的工作。只有在完成以子节点开始的所有分支后，才能完成父节点和回溯的工作。
+
+从实现中可以看出，`performUnitOfWork`和`completeUnitOfWork`主要用于迭代目的，而主要功能则在`beginWork`和`completeWork`函数中进行。在本系列的以下文章中，我们将了解当`React`调用入`beginWork`和`completeWork`函数时`ClickCounter`组件和`span`节点会发生什么。
+
+## Commit 阶段 ##
+
+本执行阶段以函数[completeRoot](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L2306)开始。这是React更新DOM并调用生命周期方法的地方。
+
+当React执行到这个阶段的时候，其已经生成了两颗`fiber`树（`current`和`workInProgress`）以及副作用链。第一个树（current tree）代表的是当前屏幕所显示的UI状态。替代树(workInProgress tree)在`render`阶段生成。它在源代码中称为`finishedWork`或`workInProgress`，表示将来在屏幕上更新的状态。替代树通过`child`和`sibling`指针与当前树类似地链接。
+
+然后，有一个副作用列表 - 其是`finishedWorktree`的节点子集然后通过`nextEffect`指针相互链接形成一个链表。副作用链是在`render`阶段产生的。副作用链的主要作用就是确定需要插入，更新或删除哪些节点，以及哪些组件需要调用其生命周期方法。**而这正是在提交阶段迭代的节点集。**
+
+为了调试需要，`current`树能够通过`fiber root`的`current`属性访问。`finishedWork`树能够通过`current`树中的`HostFiber`节点的`alternate`属性访问到。
+
+在`commit`阶段运行的主要功能是[commitRoot](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L523)。其主要功能如下：
+
++ 在使用快照效果标记的节点上调用`getSnapshotBeforeUpdate`生命周期方法
++ 在使用`Deletion`效果标记的节点上调用`componentWillUnmount`生命周期方法
++ 执行所有DOM插入，更新和删除
++ 将`finishedWork`树设置为`current`树
++ 在使用`Placement`效果标记的节点上调用`componentDidMount`生命周期方法
++ 在使用`Update`效果标记的节点上调用`componentDidUpdate`生命周期方法
+
+
+
+
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
