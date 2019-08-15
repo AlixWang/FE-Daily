@@ -19,7 +19,7 @@ React的官方文档对此提供了一个很好地高级概述：React元素、�
 
 我将带你一起了解一些React的高级知识🧙‍。我鼓励你阅读它以了解Concurrent React内部工作背后的魔力。而且这一系列的文章也能作为想React开源项目贡献的指南。我非常相信逆向工程，因此最新版本16.6.0中的源代码会有很多链接。
 
-这里包含很多内容，所有如果你不能马上理解的话不要感到有压力。这些内容值得你花时间去了解。注意如果只是为了能熟练使用React，那么你没必要了解这些内容。这篇文章是为了
+这里包含很多内容，所有如果你不能马上理解的话不要感到有压力。这些内容值得你花时间去了解。注意如果只是为了能熟练使用React，那么你没必要了解这些内容。这篇文章是为了理解React内部的运行原理。
 
 ## 设置背景 ##
 
@@ -453,8 +453,74 @@ function completeWork(workInProgress) {
 + 在使用`Placement`效果标记的节点上调用`componentDidMount`生命周期方法
 + 在使用`Update`效果标记的节点上调用`componentDidUpdate`生命周期方法
 
+在调用预处理方法`getSnapshotBeforeUpdate`后，`React`会将`fiber`树上的所有副作用进行提交。这里主要分为两步。第一步会执行所有DOM的插入、更新、删除和`ref`卸载。然后`React`将`finishWork`树赋值给`FiberRoot`将`workInProgress`树标记为`current`树。这些都是在`commit`阶段的第一步完成的，所以在`componentWillUnmonut`的生命周期方法执行的时侯`current`树还没有被`workInProgress`树替换，但是第二步开始之前，比如`componentDidMount/Update`这些生命周期函数执行的时候，`current`树就已经被`workInProgress`树替换了。在第二步的时候React会执行剩下的所有生命周期函数和ref的回调函数。因为整个fiber树中的添加、更新和删除行为都被调用过了，所以这些方法能作为单独的传递执行。（这句话没明白啥意思。。。。。）
 
+下面是这些函数执行步骤的代码描述：
 
+```javascript
+function commitRoot(root, finishedWork) {
+    commitBeforeMutationLifecycles()
+    commitAllHostEffects();
+    root.current = finishedWork;
+    commitAllLifeCycles();
+}
+```
 
+这些子函数中的每一个都实现了一个循环，该循环遍历副作用链表并检查副作用的类型。当它找到与函数目的相关的副作用时，就会执行相关的副作用。
+
+## Pre-mutation lifecycle methods ##
+
+例如，这是在副作用树上迭代并检查节点是否具有`SnapsShot`效果的代码：
+
+```javascript
+function commitBeforeMutationLifecycles() {
+    while (nextEffect !== null) {
+        const effectTag = nextEffect.effectTag;
+        if (effectTag & Snapshot) {
+            const current = nextEffect.alternate;
+            commitBeforeMutationLifeCycles(current, nextEffect);
+        }
+        nextEffect = nextEffect.nextEffect;
+    }
+}
+```
+
+对于`class`组件，此副作用意味着调用`getSnapshotBeforeUpdatelifecycle`方法。
+
+## DOM updates ##
+
+[commitAllHostEffects](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L376)是`React`执行`DOM`更新的函数。该函数基本上定义了需要为节点完成的操作类型并执行它：
+
+```javascript
+function commitAllHostEffects() {
+    switch (primaryEffectTag) {
+        case Placement: {
+            commitPlacement(nextEffect);
+            ...
+        }
+        case PlacementAndUpdate: {
+            commitPlacement(nextEffect);
+            commitWork(current, nextEffect);
+            ...
+        }
+        case Update: {
+            commitWork(current, nextEffect);
+            ...
+        }
+        case Deletion: {
+            commitDeletion(nextEffect);
+            ...
+        }
+    }
+}
+```
+
+有趣的是，`React`调用`componentWillUnmount`方法作为`commitDeletion`函数中删除过程的一部分。
+
+## Post-mutation lifecycle methods ##
+
+[commitAllLifecycles](https://github.com/facebook/react/blob/95a313ec0b957f71798a69d8e83408f40e76765b/packages/react-reconciler/src/ReactFiberScheduler.js#L465)是`React`调用所有剩余生命周期方法`componentDidUpdate`和`componentDidMount`的函数。
+
+这就是这篇文章的所有内容了，如果有疑问可以去原文下面进行提问，然后大家可以去看看作者的另一篇文章[In-depth explanation of state and props update in React.](https://medium.com/react-in-depth/in-depth-explanation-of-state-and-props-update-in-react-51ab94563311)
 
 [原文链接](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
