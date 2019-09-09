@@ -66,6 +66,32 @@
   yw 复制单词 yy 复制一行
 
 
+**多窗口**
+
++ 如何打开一个新窗口
+  :split
++ 选择窗口
+  Ctrl+ww 窗口切换
+  Ctrl+wj 上一个窗口
+  Ctrl+wk 下一个窗口
++ 关闭窗口
+  ZZ | :q
+  Ctrl+wc
++ 同时编辑两个文件
+  :split filename
+
++ 控制窗口的大小
+  : 10 split 打开一个高度为10行的窗口
++ 其他命令
+  :new 打开一个新的空白窗口
+  :sview 打开一个只读的窗口
++ buffer基础应用
+  buffer表示的是当前vim中所有编辑文件的状态，其总共有三种状态，active、hide、inactive。
+  :hide 命令用来进入hide状态
+  :buffers 用来显示所有的buffer
+  :buffer number 用来选择展示某个buffer
+  :sbuffer number 用来在新窗口中展示buffer
+
 
 单词移动 w/e 下一单词 b 上一个单词
 行内移动 ^行首非空白字符 0行首 $行尾
