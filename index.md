@@ -9,3 +9,7 @@
 4. [File Blob]('./File-Blob.md')
 
 5. [react-potal]('./react-portal.md')
+
+6. [babel-config-distinct]('./babel-config-distinct.md')
+
+7. [js-error-handle]('./js-error-handle.md')
