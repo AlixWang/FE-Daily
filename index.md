@@ -13,3 +13,5 @@
 6. [babel-config-distinct]('./babel-config-distinct.md')
 
 7. [js-error-handle]('./js-error-handle.md')
+
+8. [react中的ui和逻辑分离.md]('./react中的ui和逻辑分离.md')
