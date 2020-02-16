@@ -14,4 +14,7 @@
 
 7. [js-error-handle]('./js-error-handle.md')
 
-8. [react中的ui和逻辑分离.md]('./react中的ui和逻辑分离.md')
+8. [react中的ui和逻辑分离]('./react中的ui和逻辑分离.md')
+
+9. [Typescript中参数类型的双向协变]('./Typescript中参数类型的双向协变.md')
+
