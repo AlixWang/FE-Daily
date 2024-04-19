@@ -20,5 +20,19 @@ spun up unable to concentrate
 ravine
  
 **2024-04-16**
-+ Saturday an ultralight plane crushed into a ferris wheel at a rural festival in Austrialia, yet 
++ Saturday an `ultralight` plane crushed into a `ferris wheel` at a rural festival in Austrialia, yet 
 somehow no one on the amusement ride nor the plane was hurt
+
+
+**2024-04-17**
++ Heidi won the world over with his forever cute but slightly confused look 
+
+**2024-04-18**
++ The project to put them online is expected completed by 2016  
+
+**2024-04-19**
++ An `alleged` SAT cheating `scandal` has been `uncovered` at a `prestigious` Long Island high 
+school. This college student is `accused` of taking the college entrance exam for at least six 
+students
+
+
