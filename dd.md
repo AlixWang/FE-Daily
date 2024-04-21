@@ -35,4 +35,9 @@ somehow no one on the amusement ride nor the plane was hurt
 school. This college student is `accused` of taking the college entrance exam for at least six 
 students
 
+**2024-04-20**
++ ST Louis takes the world series opener on a cool night, It was 49 degrees at the start of the game
 
+**2024-04-21**
++ They searched for the missing throughout the night under generator-powered `flood lights` as family 
+members waited by the `mounds` of `debris` some in tears
