@@ -41,3 +41,7 @@ students
 **2024-04-21**
 + They searched for the missing throughout the night under generator-powered `flood lights` as family 
 members waited by the `mounds` of `debris` some in tears
+
+**2024-04-22**
++ It's the kind of thing  you look forward to instead of, you know, some `workouts` you `dread` and 
+you think of it as work and this is just fun.
