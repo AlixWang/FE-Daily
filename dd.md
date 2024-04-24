@@ -45,3 +45,8 @@ members waited by the `mounds` of `debris` some in tears
 **2024-04-22**
 + It's the kind of thing  you look forward to instead of, you know, some `workouts` you `dread` and 
 you think of it as work and this is just fun.
+
+**2024-04-23**
++ Superhero `costumes` ,as usual, are big this year easpecialy from recent movies like Thor and the Green Lantern
+
++ It's a pain cuz my fridge dump today, the foods gone.
