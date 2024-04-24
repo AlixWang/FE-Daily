@@ -49,4 +49,13 @@ you think of it as work and this is just fun.
 **2024-04-23**
 + Superhero `costumes` ,as usual, are big this year easpecialy from recent movies like Thor and the Green Lantern
 
+**2024-04-24**
 + It's a pain cuz my fridge dump today, the foods gone.
+
+**2024-04-25**
++ He says he was simply going by the book when it comes to landing without `gear`, and that he and his
+fellow `pilots` train for these of type accident
+
+
+
+
