@@ -54,8 +54,10 @@ you think of it as work and this is just fun.
 
 **2024-04-25**
 + He says he was simply going by the book when it comes to landing without `gear`, and that he and his
-fellow `pilots` train for these of type accident
+fellow `pilots` train for these of types accident
 
-
+**2024-04-26**
++ It is the vegetable some love to hate , but now a new bread of broccoli "super broccoli" developed
+in Britain may protect against heart disease even some kinds of cancer.
 
 
