@@ -63,3 +63,7 @@ in Britain may protect against heart disease even some kinds of cancer.
 **2024-04-27**
 + Mayer Sam Adams ordered that the camp be shut down in saturday citing unhealthy 
 conditions and the attraction of drag dealers and thieves 
+
+**2024-04-28**
++ The `preliminary goverment` report `predicts` it'll take 30 years or more to safely 
+`decommission` the `facility` and it could be decades before nearby `residents` who were forced to `flee` can return to the area.
