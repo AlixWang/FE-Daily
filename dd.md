@@ -67,3 +67,7 @@ conditions and the attraction of drag dealers and thieves
 **2024-04-28**
 + The `preliminary goverment` report `predicts` it'll take 30 years or more to safely 
 `decommission` the `facility` and it could be decades before nearby `residents` who were forced to `flee` can return to the area.
+
+**2024-04-29**
++ I was lifting, you knows, chairs out of the way, broken glass uh, other `sanitary` items I don't want 
+to get into, but uh, It was uh, `horrific` to say least.
