@@ -74,5 +74,8 @@ to the area.
 to get into, but uh, It was uh, `horrific` to say least.
 
 **2024-04-30**
-+ Toyoto is `recalling` more than half a million `vehicles` for problems that could make them difficult 
-to `steer`
++ Toyoto is `recalling` more than half a million `vehicles` for problems that could make them difficult to `steer`
+
+**2024-05-01**
++ It's great Its um, been a little bit nerve wracking, um and It's been a long process to get here
+
