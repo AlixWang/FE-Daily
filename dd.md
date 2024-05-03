@@ -77,5 +77,9 @@ to get into, but uh, It was uh, `horrific` to say least.
 + Toyoto is `recalling` more than half a million `vehicles` for problems that could make them difficult to `steer`
 
 **2024-05-01**
-+ It's great Its um, been a little bit nerve wracking, um and It's been a long process to get here
++ It's great Its um, been a little bit nerve `wracking`, um and It's been a long process to get here
+
+**2024-05-02**
++ When the family left vietnam by boat, bound for Thailand,  but the boat was intercepted by pirates after years of trying  the father located his son in Thailand.
+
 
