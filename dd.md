@@ -80,6 +80,15 @@ to get into, but uh, It was uh, `horrific` to say least.
 + It's great Its um, been a little bit nerve `wracking`, um and It's been a long process to get here
 
 **2024-05-02**
-+ When the family left vietnam by boat, bound for Thailand,  but the boat was intercepted by pirates after years of trying  the father located his son in Thailand.
++ When the family left vietnam by boat, bound for Thailand,  but the boat was `intercepted` by `pirates`, after years of trying, the father located his son in Thailand.
+
+**2024-05-03**
++ A `gooey` `mess` `snarls` traffic along the busy Pennsylvania Turnpike. A leaking `valve` on a tanker spread driverway `sealant` across a 40-mile `stretch` of the `eastbound` side.
+
+**2024-05-04**
++ A music has been played at a church in Germany, and well it really `lives up to its name`, Since it started there have been just 11 `chord` changes and the next one isn't scheduled until July 2012!
+
+
+
 
 
