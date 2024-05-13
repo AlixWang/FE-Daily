@@ -83,12 +83,25 @@ to get into, but uh, It was uh, `horrific` to say least.
 + When the family left vietnam by boat, bound for Thailand,  but the boat was `intercepted` by `pirates`, after years of trying, the father located his son in Thailand.
 
 **2024-05-03**
-+ A `gooey` `mess` `snarls` traffic along the busy Pennsylvania Turnpike. A leaking `valve` on a tanker spread driverway `sealant` across a 40-mile `stretch` of the `eastbound` side.
++ A `gooey` `mess` `snarls` traffic along the busy Pennsylvania `Turnpike`. A leaking `valve` on a tanker spread driverway `sealant` across a 40-mile `stretch` of the `eastbound` side.
 
 **2024-05-04**
 + A music has been played at a church in Germany, and well it really `lives up to its name`, Since it started there have been just 11 `chord` changes and the next one isn't scheduled until July 2012!
 
+**2024-05-05**
++ Dozens of white rabbits were apparently dumped along the side of the road Sunday night, more than 60 `bunnies` were `scattered` on the shoulder
 
+**2024-05-06**
++ There is a wonderful line I came accross "if you've always done or if you always do what you've always done. you'll always get what you've always got". it's a briliant line.
 
+**2024-05-09**
++ Her story has `inspired` others from Montana to Indiana to pay off the bills of complete strangers. In these days before Christmas. Holiday shoppers who've heard about the `layaway` `Santas` say the `sweeping acts` of kindness have restored their faith in people.
 
+**2024-05-10**
++ He sprang to his sleigh to his team give a whistle and away they all flew like the down of a thistle. But I heard him exclaim as he drove out of slight  Haapy Christomas to all and to all to good night
 
+**2024-05-12**
++ E: Hey, George you know, my friend goes to a `psychic`.
++ G: Really?
++ E: Un-huh. we should go sometime.
++ G: I'd love to go. Make an appointment.
