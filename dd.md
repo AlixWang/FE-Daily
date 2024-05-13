@@ -103,5 +103,11 @@ to get into, but uh, It was uh, `horrific` to say least.
 **2024-05-12**
 + E: Hey, George you know, my friend goes to a `psychic`.
 + G: Really?
-+ E: Un-huh. we should go sometime.
++ E: Un-huh. `we should go sometime`.
 + G: I'd love to go. Make an appointment.
+
+**2024-05-13**
++ Dad I beat you, Don't you remember the Rayman Spinball. 
++ Ray, I learned to paly in Korea from Koreans, Do you think some punk kid's gonna actually actually beat me.  
++ No, dad, you were trying to win. you were `sweating` and `panting`. 
++ I am a damn fine actor. 
