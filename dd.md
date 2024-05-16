@@ -111,3 +111,12 @@ to get into, but uh, It was uh, `horrific` to say least.
 + Ray, I learned to paly in Korea from Koreans, Do you think some punk kid's gonna actually actually beat me.  
 + No, dad, you were trying to win. you were `sweating` and `panting`. 
 + I am a damn fine actor. 
+
+**2024-05-14**
++ Hey is it cold out.
+
+**2024-05-15**
++ For more than 300 years, the power of the French king was absolute, this meant that he had the power to do anything 
+
+**2024-05-16**
++ What people were do these days for their pets. A wash and a blowdry -- that goes without saying. But the demanding dog now wants a limo along with other creature comforts at a pet hotel  and day spa.
