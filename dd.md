@@ -122,6 +122,8 @@ to get into, but uh, It was uh, `horrific` to say least.
 + What people were do these days for their pets. A wash and a blowdry -- that goes without saying. But the `demanding` dog now wants a limo along with other creature comforts at a pet hotel and day spa.
 
 **2024-05-17**
-+ Buckingham Palace officials are `staying mum about` the  murder case and  police are keeping many details confidential as they try to identify the victim and figureout exactly what's happened to her.
++ Buckingham Palace officials are `staying mum about` the  murder case and  police are keeping many details confidential as they try to identify the victim and figure out exactly what's happened to her.
 
 > staying mum about: keep silent about something
+> confidential: secret
+> figure out: find out
