@@ -128,7 +128,32 @@ to get into, but uh, It was uh, `horrific` to say least.
 > confidential: secret
 > figure out: find out
 
-
 **2024-05-18**
-+ 
++ 1863 "all aboard, but mind the gap", as the world's first underground  passenger railway opens in London.
 
+**2024-05-19**
++ And why do you wanna go there.
++ I know it's had a bad press recently, but it's the place that's taken my fancy!
+
+> bad press: nagetive news
+
+**2024-05-20**
++ There's people running and walking their dogs and having `brunch` on the `patios`. 
+
+> brunch: breakfast and lunch
+> patios: an outdoor space generally used for dining or recreation that adjoins a structure and is typically paved
+> porch: a room or gallery located in front of an entrance of a building(front hourse)
+> deck: a floorlike surface on a ship, an unroofed porch attached to a house, or a pack of playing cards.(back hourse)
+
+**2024-05-21**
++ Martin Luther King Jr's rise as a civi rights leader began in 1955 when he `spearheaded` the drive to `desegregate` public buses in Montagomery Alabama.
+
+> spearheaded: 
+> desegregate: 
+
+**2024-05-22**
++ Anti-piracy `legislation` under `consideration` in Washington has some website in a `tizzy`, Wikipedia, Boing-Boing and Radit say they'll have none of it and are blacking out their sites on Wednesday.
+
+> legislation: law 
+> consideration: careful thought
+> tizzy: a state of nervious
