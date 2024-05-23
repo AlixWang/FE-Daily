@@ -157,3 +157,8 @@ to get into, but uh, It was uh, `horrific` to say least.
 > legislation: law 
 > consideration: careful thought
 > tizzy: a state of nervious
+
+**2024-05-23**
++ There are usually about three shark attack on people in and arround Australia all year . In 2012, the country has seen 3 attacks already and Jenuary isn't even finished yet.
+
+
