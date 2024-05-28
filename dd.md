@@ -159,6 +159,26 @@ to get into, but uh, It was uh, `horrific` to say least.
 > tizzy: a state of nervious
 
 **2024-05-23**
-+ There are usually about three shark attack on people in and arround Australia all year . In 2012, the country has seen 3 attacks already and Jenuary isn't even finished yet.
++ There are usually about three shark `attack` on people in and arround Australia all year . In 2012, the country has seen 3 attacks already and Jenuary isn't even finished yet.
 
+**2024-05-24**
++ And Georgia mother says she was arrested for allowing her ten year old son to get a `tattoo` `in memery of` his `late brother`. 
++ We hoped that they could find something that would `sustain` them through that loss,but this is not the way.
 
+> conondrum: difficult questions
+
+**2024-05-25**
++ You sold us a hair with a cake arroud it.
+
+**2024-05-27**
+It's surely the running for one of the most expensive `pile-ups` in highway history. These `crumpled` ferraris were among 8 involved in the `crash`. 
+The airbags may have saved those inside from serious injvry. but oh, what damage may have been done to bruise the spirits of these unthusiasts attached to their sleek sports cars.
+
+> crash vs crush
+> spirits vs egos
+
+**2024-05-28**
++ Hey, Lilith, sorry for the `holdup`, but Frasier should be back from the dentist any minute.
++ Oh all right, I'll give you a chance to visit it.
+
+> holdup: delay
