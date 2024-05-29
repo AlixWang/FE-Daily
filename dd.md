@@ -179,6 +179,10 @@ The airbags may have saved those inside from serious injvry. but oh, what damage
 
 **2024-05-28**
 + Hey, Lilith, sorry for the `holdup`, but Frasier should be back from the dentist any minute.
-+ Oh all right, I'll give you a chance to visit it.
++ Oh all right, that'll give us a chance to visit.
 
 > holdup: delay
+
+**2024-05-29**
++ This iceberg here there's `outcroppings` under the water. and un, sea iceberg ice is very hard. So it's almost like, it could almost be like a can opener. And when probably the Titanic went by it, it just sliced a hole in it like you would with a manual can opener.
+
