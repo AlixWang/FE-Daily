@@ -186,3 +186,5 @@ The airbags may have saved those inside from serious injvry. but oh, what damage
 **2024-05-29**
 + This iceberg here there's `outcroppings` under the water. and un, sea iceberg ice is very hard. So it's almost like, it could almost be like a can opener. And when probably the Titanic went by it, it just sliced a hole in it like you would with a manual can opener.
 
+**2024-05-29**
++ It's snowing it's beautyful we're out in the middle of nowhere, I'm freezing and that I'm about to be pulled by 8 dogs in a `toboggan`.  um, really, it doesn't get much more Vermant than this. 
