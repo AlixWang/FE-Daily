@@ -186,5 +186,26 @@ The airbags may have saved those inside from serious injvry. but oh, what damage
 **2024-05-29**
 + This iceberg here there's `outcroppings` under the water. and un, sea iceberg ice is very hard. So it's almost like, it could almost be like a can opener. And when probably the Titanic went by it, it just sliced a hole in it like you would with a manual can opener.
 
-**2024-05-29**
+**2024-05-30**
 + It's snowing it's beautyful we're out in the middle of nowhere, I'm freezing and that I'm about to be pulled by 8 dogs in a `toboggan`.  um, really, it doesn't get much more Vermant than this. 
+
+**2024-05-31**
++ Fabrurary 9th 1994 Beatlemania hits primetime at the United States.
+
+**2024-06-01**
++ According to the CDC. 2 out of every three Americans are considered either overweight or obese and the trend towards unhelthy habits is starting even younger with nearly 20% of children between the ages of 17 considered `obese`.
+
+**2024-06-03**
+There are places I remember.
+All my life, though some have changed, some forevery, not for better.
+some have gone, some remain. all these places have their moments.
+with lovers and friends i still can `recall`. some are dead and some are living.
+in my life i've loved them all.
+
+**2024-06-04**
+Douglas, would you please pass the catsup?
+The what?
+The catsup.
+You mean the `ketchup`.
+Educated people pronouce it cat-sup.
+not if they want me to pass it to they. 
