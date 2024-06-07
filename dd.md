@@ -214,8 +214,15 @@ Not if they want me to pass it to they.
 February 18 1885, Mark Twain's "The adventures of Huckleberry Finn" one of the great American novels, is first published in the United States.
 
 **2024-06-05**
-86% of all doctor visits and illness `statistically` are base on stress.
++ 86% of all doctor visits and illness `statistically` are base on stress.
 
+**2024-06-06**
++ History is amazing , what took thousands of years to develop a great `civilizations`, took a flash to change. when Hernando Cortez and 550 man landed on the Gulf of Mexico in 1590 it tooks only a couple of years to forever change the land that is now Mexico.
 
-**2024-06-05**
-History is amazing , what took thousands of years to develop a great `civilizations`, took a flash to change. when Hernando Cortez and 550 man landed on the Gulf of Mexico in 1590 it tooks only a couple of years to forever change the land that is now Mexico.
+**2024-06-07**
++ Stop it, stop what. you're talking about me in morse code. But you know what? joke's on you, cuz I know moss code. 
+
+**2024-06-08**
++ American Electric power is currentlly blow its 50-day moving average of 40.28 and blow its 200-day MA  of 38.53.
+> MA 移动平均线
+
