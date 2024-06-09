@@ -229,3 +229,8 @@ February 18 1885, Mark Twain's "The adventures of Huckleberry Finn" one of the g
 **2024-06-09**
 + People born on February 29th on some previous leap year also knows as "leapings", they finally get to celebrate their real birthday.
 
+**2024-06-10**
++ You can `essentially` `opt out` of the new policy by manually deleting your google web history or by simply not signing in to sites like gmail when searching on google.
+
+> essentially: basically, fundamentally
+> opt out: means to choose not to participate in something
