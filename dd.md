@@ -234,3 +234,7 @@ February 18 1885, Mark Twain's "The adventures of Huckleberry Finn" one of the g
 
 > essentially: basically, fundamentally
 > opt out: means to choose not to participate in something
+
+**2024-06-11**
++ Everyone who comes into our shop tells us "you have a perfect life" and we say "Yeah, you know what, we do we really do" They go hand and hand, books and chocolate"
+
