@@ -226,3 +226,6 @@ February 18 1885, Mark Twain's "The adventures of Huckleberry Finn" one of the g
 + American Electric power is currentlly blow its 50-day moving average of 40.28 and blow its 200-day MA  of 38.53.
 > MA 移动平均线
 
+**2024-06-09**
++ People born on February 29th on some previous leap year also knows as "leapings", they finally get to celebrate their real birthday.
+
