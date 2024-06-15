@@ -252,3 +252,9 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 24 hour access to cupcakes it's a nightmare for `dieters`, but this vending concept is an advantage for Sprinkles, when it comes to cupcakes competition.
 
 > vending machine: 自动贩卖机
+
+**2024-06-16**
++ Next we enter the white desert where from a distance the limestone looks like snow and rock piles like icebergs.
+
+**2024-06-16**
++ Call Jeff and tell him about this,  wait wait what time is it, it's 10:20, 10 o'clock is the cut off time. You don't call peopel after 10:00.  No no no the cut-off time is 10:30, 10 o'clock you don't call after 10:00, No no 10:30.
