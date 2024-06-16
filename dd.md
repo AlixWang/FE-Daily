@@ -256,5 +256,13 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 **2024-06-16**
 + Next we enter the white desert where from a distance the limestone looks like snow and rock piles like icebergs.
 
-**2024-06-16**
+**2024-06-17**
 + Call Jeff and tell him about this,  wait wait what time is it, it's 10:20, 10 o'clock is the cut off time. You don't call peopel after 10:00.  No no no the cut-off time is 10:30, 10 o'clock you don't call after 10:00, No no 10:30.
+
+**2024-06-18**
++ Stand frim for what you belive in, untill and unless logic experience prove you  wrong. Remember when the emperor lookes naked the emperor is naked the truth and the lie are not sort of the same thing.
+
+> white lies: harmless lies
+
+**2024-06-18**
++ 
