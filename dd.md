@@ -264,5 +264,15 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 
 > white lies: harmless lies
 
-**2024-06-18**
-+ 
+**2024-06-19**
++ Olives are the gold in Andalucia, Spain is the world's biggest olive oil producer, and Audalucia accounts for 80% of Spanish oil.
+
+**2024-06-20**
++ Dr.Emoto has `conducted` another intersting `experiment`, he placed rice into three glass `beakers` and covered it with water. And then every day for a month, he said "thank you" to one beaker, "you're an idiot" to the second, and the third one he completely ignored.
+
+**2024-06-21**
++ You know most people think that the world is getting worse. that the life of their children is gonna be less than they had, but the fact of the matter is, the world is getting better of an extraordinary rate.
+
+**2024-06-22**
++ In a city full of showy sights, there are more humble creations standing by until that tretch in March and April when it is time to blossom.
+
