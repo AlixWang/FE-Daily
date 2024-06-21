@@ -274,5 +274,11 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 + You know most people think that the world is getting worse. that the life of their children is gonna be less than they had, but the fact of the matter is, the world is getting better of an extraordinary rate.
 
 **2024-06-22**
-+ In a city full of showy sights, there are more humble creations standing by until that tretch in March and April when it is time to blossom.
++ In a city full of showy sights, these are more humble creations standing by until that stretch in March and April when it is time to blossom.
 
+**2024-06-23**
++ Trying is having the intention to fail, you gotta scrap the word from your vocab say you're gonna do it and you will.
+
+**2024-06-24**
++ Well that I think is the real crux of this issue
+> crux: main question 症结、关键
