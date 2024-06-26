@@ -282,3 +282,9 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 **2024-06-24**
 + Well that I think is the real crux of this issue
 > crux: main question 症结、关键
+
+**2024-06-25**
++ Look imagination feeds exploration you have to imagine the possible before you can go and do it.
+
+**2024-06-26**
++ There is not the dim on the sahara, in fact there are found in the circle from Russia's north.
