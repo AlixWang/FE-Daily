@@ -287,4 +287,17 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 + Look imagination feeds exploration you have to imagine the possible before you can go and do it.
 
 **2024-06-26**
-+ There is not the dim on the sahara, in fact there are found in the circle from Russia's north.
++ These are not the dunes of the Sahara, Infact there are found beyond the Arctic Circle in the permafrost of Russia's north.
+> permanent: forvery // 永恒
+> frost: // 霜冻，冰冻
+
+**2024-06-27*
++ April 4 the day to show  compassion care and act for stray animals all around the world   
+> compassion // 同情
+> act // meaning action
+> stray // 流浪
+
+**2024-06-27*
++ 1896 The first modern Olympic Games open in Athens Greece land of the ancient games with athletes from 14 countries.
+
+
