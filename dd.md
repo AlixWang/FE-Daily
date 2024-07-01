@@ -297,7 +297,17 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 > act // meaning action
 > stray // 流浪
 
-**2024-06-27*
+**2024-06-28*
 + 1896 The first modern Olympic Games open in Athens Greece land of the ancient games with athletes from 14 countries.
 
+**2024-06-29*
++ My bad,
++ Tell me you have good insurance, 
++ yep I've got "Allstate"  
++ Really?
 
+**2024-06-30*
++ The point is you should get to know a person first then judge them you should never judge a book by its cover, judge it by the amount of pages.
+
+**2024-07-01*
++ I had it in spades on both sides, It came really nature to me. 
