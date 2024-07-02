@@ -311,3 +311,16 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 
 **2024-07-01*
 + I had it in spades on both sides, It came really nature to me. 
+
+**2024-07-02*
++ It takes a lot of work, you have to work everyday on it. And then that's not I downside, there isn't a downside, really.
+
+**2024-07-03*
++ Hello
+
++ Oh gee I can't talk right now, why don't you give me your home number and i will call you later
+
++ oh I guess you don't want peopel calling you at home
+
++ well now you know how I fell.
+
