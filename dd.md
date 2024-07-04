@@ -324,3 +324,22 @@ See you at the seahawks 12k 5k run/walk and kids dash April 1st.
 
 + well now you know how I fell.
 
+**2024-07-04**
++ as many of you know
++ Hey, you got anything to eat?
++ yeah, try this
++ I'm not eating that kid staff
++ Just try them
+
+**2024-07-05**
+We were supposed to meet today, but I missed our appointment sorry.
+
+**2024-07-06**
+The cheetah excels acceleration it's the sprots car of the savanna.
+
+> acceleration // speed
+> excels // good at
+> savanna // grasslands with some trees
+
+
+
