@@ -349,8 +349,11 @@ It is only the mediocre pupil. who does not surpass his master, Leonadrdo writes
 + surpass // 超越
 
 **2024-07-08**
-Whether you're new to the world of paddling or a seasoned veteran, you're sure to find this video padding guidebook helpful in your guest to find new and exciting rivers to explore.
+Whether you're new to the world of paddling or a seasoned veteran, you're sure to find this video padding guidebook helpful in your quest to find new and exciting rivers to explore.
 
 + paddling // 划船
 + seasoned // 经验丰富的
 + veteran // 老将
+
+
+
