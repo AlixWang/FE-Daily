@@ -43,7 +43,7 @@ B: Have at it.
 A: Did you just ask my permission before you took my food.
 
 # 2024-07-16
-One of Switzerland's `predominant` cities is basel lies on the Swiss border of France and Germany.
+One of Switzerland's `predominant` cities Basel lies on the Swiss border of France and Germany.
 
 + predominant: important
 
