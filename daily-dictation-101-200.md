@@ -47,3 +47,11 @@ One of Switzerland's `predominant` cities Basel lies on the Swiss border of Fran
 
 + predominant: important
 
+# 2024-07-17
+Even from very early on when we were just builing a thing for one school, there was this concept of what it could turn into. We just weren't sure then  that we would be the ones who did it.
+
+# 2024-07-18
+Keeping future resources `intact` means keeping present `consumption` in check and that's why we promote green ways of living and working.
+
++ intact: complete
++ consumption: use
