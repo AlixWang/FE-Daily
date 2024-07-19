@@ -34,3 +34,16 @@ No
 # 2024-07-13
 One of his 1st trips will be to the us for a NATO summit where he will announce that he is pulling French troops out of Afghanistan by the end of the year.
 
+# 2024-07-14
+When you can't smoke, if you stand and stare out of the window on your own, your're an anti-social friendless idiot. If you stand and stare out of the window on your own with a `cigarette` , you're a fucking `philosopher`. 
+
+# 2024-07-15
+A: Gonna eat that?
+B: Have at it.
+A: Did you just ask my permission before you took my food.
+
+# 2024-07-16
+One of Switzerland's `predominant` cities is basel lies on the Swiss border of France and Germany.
+
++ predominant: important
+
