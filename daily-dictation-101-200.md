@@ -62,3 +62,10 @@ It is maddening texting while walking, one town is saying  it's time to level fi
 + maddning: crazy/frustrating
 + fine: 罚款
 + dodge: avoid // 躲闪，躲避
+
+# 2024-07-20
+Post-It Super Sticker Notes, hold on stronger and longer, but of course remove cleanly.
+
+# 2024-07-21
+When it comes to figuring out feats of strength, it is all in the fingers here.
+
