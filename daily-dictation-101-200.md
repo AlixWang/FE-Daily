@@ -55,3 +55,10 @@ Keeping future resources `intact` means keeping present `consumption` in check a
 
 + intact: complete
 + consumption: use
+
+# 2024-07-19
+It is maddening texting while walking, one town is saying  it's time to level fines against people who walk into the streets heads down everybody else trying to dodge theme.  
+
++ maddning: crazy/frustrating
++ fine: 罚款
++ dodge: avoid // 躲闪，躲避
