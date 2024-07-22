@@ -69,3 +69,15 @@ Post-It Super Sticker Notes, hold on stronger and longer, but of course remove c
 # 2024-07-21
 When it comes to figuring out feats of strength, it is all in the fingers here.
 
+# 2024-07-22
+I think I could use some black coffee.
+What size would you like.
+Um, I've got a lot to `ponder`, think a large. 
+I'm afraid we don't have large sir. We have piccolo, macho, mucho mucho macho!
+
++ ponder: think about
+
+# 2024-07-23
+
+
+
