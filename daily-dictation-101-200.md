@@ -78,6 +78,7 @@ I'm afraid we don't have large sir. We have piccolo, macho, mucho mucho macho!
 + ponder: think about
 
 # 2024-07-23
-
+I don't trust anyone anymore.
+I don't blame you, I'am not like those so-called fair-weather friend of yours, you can believe in me. 
 
 
