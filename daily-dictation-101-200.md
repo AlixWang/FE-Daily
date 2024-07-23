@@ -89,4 +89,4 @@ Well, Dougal, generally speeking, priests tend to have a very strong belief in t
 Boy I wish I had your faith, Ted
 
 # 2024-07-25
-These young montain bickers are spending their afternoon racing on the trails.
+These young mountain bickers are spending their afternoon racing on the trails.
