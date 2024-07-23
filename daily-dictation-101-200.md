@@ -87,3 +87,6 @@ Do i what?
 Do you believe in an afterlife.
 Well, Dougal, generally speeking, priests tend to have a very strong belief in the afterlife.
 Boy I wish I had your faith, Ted
+
+# 2024-07-25
+These young montain bickers are spending their afternoon racing on the trails.
