@@ -81,4 +81,9 @@ I'm afraid we don't have large sir. We have piccolo, macho, mucho mucho macho!
 I don't trust anyone anymore.
 I don't blame you, I'am not like those so-called fair-weather friend of yours, you can believe in me. 
 
-
+# 2024-07-24
+Ted I just wanted to ask you; do you believe in an afterlife.
+Do i what?
+Do you believe in an afterlife.
+Well, Dougal, generally speeking, priests tend to have a very strong belief in the afterlife.
+Boy I wish I had your faith, Ted
