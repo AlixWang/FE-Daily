@@ -90,3 +90,27 @@ Boy I wish I had your faith, Ted
 
 # 2024-07-25
 These young mountain bickers are spending their afternoon racing on the trails.
+
+# 2024-07-26
+It's a rainly day today, so I think I might do something, that's been needing to be done for a while.
+
+# 2024-07-27
+Well I guess I should remind you, if you're freaking out right now.  that this hasn't happend. yet.
+
+# 2024-07-28
+Hey!
+Hey!
+How come you're wearing a hat.
+I got a haircut.
+...
+Oh yeah can i see it.
+Eh, There's nothing to see.
+Come on, let me see it.
+forget it
+come on
+alright
+
+# 2024-07-29
+
+
+
