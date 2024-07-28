@@ -111,6 +111,10 @@ come on
 alright
 
 # 2024-07-29
+The Amazon forest, which `blankets` 40% Brizil's `territory`. is the home to more than 1800 `species` of birds and several hundred of species of `mammals`, And more than 1500 species of `aquatic` `creatures` inhabit its countless miles of waterways.
+
+# 2024-07-30
+Usually we just hang out, you know, maybe we'll go for family hike or something. I don't know where, you know we'll be in Iceland that day. So I don't know what the plans are.
 
 
 
