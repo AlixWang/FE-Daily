@@ -114,7 +114,10 @@ alright
 The Amazon forest, which `blankets` 40% Brizil's `territory`. is the home to more than 1800 `species` of birds and several hundred of species of `mammals`, And more than 1500 species of `aquatic` `creatures` inhabit its countless miles of waterways.
 
 # 2024-07-30
-Usually we just hang out, you know, maybe we'll go for family hike or something. I don't know where, you know we'll be in Iceland that day. So I don't know what the plans are.
+Usually we just hang out, you know, maybe we'll go for family hike or something. I don't know where, you know we'll be in Iceland that day, so we'll see what that does, We're gonna kick back on Sunday, So I don't know what the plans are.
+
+# 2024-07-31
+He was about 600 pounds at that point, 640 or so pounds. He got down to about 480 at one point and um he died at 1000 pounds. 
 
 
 
