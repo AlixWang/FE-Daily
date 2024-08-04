@@ -113,5 +113,5 @@ Deno.serve({
 
 首先我们分析下上述数据如果存储为二进制格式需要的数据结构为什么样子。首先`width`和`height`,我们可以假定其值不超过10000,且为正。那么可以用2个字节来存储其值，这样width和height就占据总共4个字节长度。剩下的`pic`和`desc`，由于是字符串类型，其长度是可变的，在存储具体值之前要先把它的长度信息进行预先存储。根据以上信息我们可以得到以下数据结构。
 
-[!binary_structure]('./binary_data_structure.png')
+![binary_structure](./binary_data_structure.png)
 
