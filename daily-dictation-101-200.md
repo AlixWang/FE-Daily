@@ -124,3 +124,7 @@ Pre-blessed food, we pre for so you don't have to.
 
 # 2024-08-02
 A 68-year-old grandmother `taunted` by four children on the school bus all of it caught on `tape`.
+
+# 2024-08-03
+Tesla says the price ranges from just under 50,000 to about 100,000 dollers depending on the battery size and options you choose.
+
