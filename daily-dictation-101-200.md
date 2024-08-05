@@ -128,3 +128,12 @@ A 68-year-old grandmother `taunted` by four children on the school bus all of it
 # 2024-08-03
 Tesla says the price ranges from just under 50,000 to about 100,000 dollers depending on the battery size and options you choose.
 
+# 2024-08-04
+One curious 9 year-old girl wrote McDonald's with that burning question: "Why does you food look different in the advertising thant what's in the store?"
+
+# 2024-08-05
+Respecting the `dignity` of a human being is giving that person the freedom to choose.
+
++ dignity // 尊严
+
+# 2024-08-06
