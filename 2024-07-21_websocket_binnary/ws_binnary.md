@@ -115,3 +115,43 @@ Deno.serve({
 
 ![binary_structure](./binary_data_structure.png)
 
+下面来看看具体转换实现如何，代码如下
+
+```typescript
+   const data =   {
+    "width": 100,
+    "height": 100,
+    "pic": "https://xxxxxx.bass.ddd",
+    "desc": "beauty girl"
+   }
+
+   const getBinaryLength = (Obj: typeof data) => {
+     // 首先加上width和height的长度,以及pic和desc的size长度
+     const length = 8;
+     const picLength = Obj.pic.length * 2;
+     const descLength = Obj.desc.length * 2;
+     return length + picLength + descLength;                  
+   }
+
+   const length = getBinaryLength(data);
+
+   const buffer = new DataView(new ArrayBuffer(length));
+
+   buffer.setUint16(0,data.width);
+   buffer.setUint16(2,data.height);
+   buffer.setUint16(4,data.pic.length);
+
+   for(let i = 0; i < data.pic.length; i++) {
+     buffer.setUint16(i * 2 + 6, data.pic.charCodeAt(i))
+   }
+
+   buffer.setUint16((data.pic.length) * 2 + 6, data.desc.length);
+
+   for(let i = 0; i < data.desc.length; i++) {
+     buffer.setUint16(i * 2 + ((data.pic.length) * 2 + 6 + 2), data.desc.charCodeAt(i))
+   }
+
+   socket.send(buffer) 
+
+```
+
