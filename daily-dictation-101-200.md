@@ -137,3 +137,18 @@ Respecting the `dignity` of a human being is giving that person the freedom to c
 + dignity // 尊严
 
 # 2024-08-06
+Spain's talented midfielders utilized their quick-touch passing strategy, know back home as "tiki toka",  to contribute to all 4 goals.
+
+# 2024-08-07
+There see? Piece of cake
+How's everybody doing back there?
+PJ keeps poking me with his rib.
+It's called breathing.
+Honey, Gab doesn't have a seatbelt or a eat.
+He will be fine Hey Charly, are you comfortable?
+No 
+Bob?
+Yes 
+New car? 
+new car
+
