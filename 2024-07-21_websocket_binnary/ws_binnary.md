@@ -128,6 +128,7 @@ Deno.serve({
    const getBinaryLength = (Obj: typeof data) => {
      // 首先加上width和height的长度,以及pic和desc的size长度
      const length = 8;
+     // pic 和 desc 都是字符串，这里我们会用utf-16进行编码，一个字符会占用两个字节，所以需要乘以2。
      const picLength = Obj.pic.length * 2;
      const descLength = Obj.desc.length * 2;
      return length + picLength + descLength;                  
@@ -135,23 +136,132 @@ Deno.serve({
 
    const length = getBinaryLength(data);
 
+   // 根据计算的数据大小创建一个对应大小的buffer
    const buffer = new DataView(new ArrayBuffer(length));
 
+   // 写入widht、height
    buffer.setUint16(0,data.width);
    buffer.setUint16(2,data.height);
+   // 写入pic的长度信息
    buffer.setUint16(4,data.pic.length);
 
+   // 遍历pic字符，写入pic数据
    for(let i = 0; i < data.pic.length; i++) {
      buffer.setUint16(i * 2 + 6, data.pic.charCodeAt(i))
    }
 
+   // 写入desc的的长度信息
    buffer.setUint16((data.pic.length) * 2 + 6, data.desc.length);
 
+   // 遍历desc字符，写入desc数据
    for(let i = 0; i < data.desc.length; i++) {
      buffer.setUint16(i * 2 + ((data.pic.length) * 2 + 6 + 2), data.desc.charCodeAt(i))
    }
-
+  
+   // 发送buffer
    socket.send(buffer) 
 
 ```
+
+上面是服务端发送二进制数据的方法，下面来看看客户端如何接收二进制数据并解析
+
+```typescript
+
+  export default function App() {
+  const ws = useRef(new WebSocket("ws://localhost:80"));
+
+  useEffect(() => {
+    if (ws.current) {
+      // 声明接收到的二进制数据返回格式为arraybuffer,如果不指定返回的是blob
+      ws.current.binaryType = "arraybuffer";
+      ws.current.addEventListener("message", async (ev) => {
+        const data = ev.data;
+        if (ev.data instanceof ArrayBuffer) {
+          const view = new DataView(ev.data);
+          // 获取width/height字段值
+          const width = view.getUint16(0);
+          const height = view.getUint16(2);
+          // 获取pic字段的长度信息
+          const picLength = view.getUint16(4);
+
+          // 获取pic字段值
+          let pic = "";
+          for (let i = 0; i < picLength; i++) {
+            const code = view.getUint16(i * 2 + 6);
+            pic += String.fromCharCode(code);
+          }
+          // 获取desc字段的长度信息
+          const descLength = view.getUint16(6 + picLength * 2);
+
+          // 获取desc字段值
+          let desc = "";
+
+          for (let i = 0; i < descLength; i++) {
+            const code = view.getUint16(i * 2 + picLength * 2 + 8);
+            desc += String.fromCharCode(code);
+          }
+
+          console.log(width, height, picLength, pic, descLength, desc);
+                  
+          }
+      });
+    }
+  }, []);
+
+  const handleGetBinarry = () => {
+    ws.current?.send("get_binary");
+  };
+
+  return (
+    <div className="App">
+      <button onClick={handleGetBinarry}>get binnary from ws</button>
+    </div>
+  );
+}
+
+```
+## 可优化的点
+
+看了上面这个发送二进制和解析二进制的例子后相信大家对如何通过ws发送和解析二进制数据有了初步的了解，不知道大家有没有发现上述例子不论是在编码发送二进制数据还是解码获取二进制数据的时候，都比较繁琐。对于这些繁琐的读写操作应该要单独抽出并进行优化的。
+
+```typescript
+  class Binary {
+    private view: DataView;
+    private iota:number = 0;
+    constructor(buffer: ArrayBuffer | DataView) {
+      if(buffer instanceof ArrayBuffer) {
+        this.view = new DataView(buffer);
+      } else {
+        this.view = buffer
+      }
+    }
+    public getBuffer() {
+      return this.view
+    }
+    public writeUint8(data: number) {
+      this.view.setUint8(this.iota, data);
+      this.iota += 1
+    }
+    public writeUin16(data:number) {
+      this.view.setUint16(this.iota, data);
+      this.iota += 2
+    }
+    public readUint8(data: number) {
+      this.view.setUint8(this.iota, data);
+      this.iota += 1
+    }
+    public readUin16(data:number) {
+      this.view.setUint16(this.iota, data);
+      this.iota += 2
+    }
+  }
+
+```
+
+通过构造上述方法类，能便于我们读写二进制数据并处理。
+
+## 结语
+
+ws通过二进制传输数据确实能极大的提高带宽利用率，合理利用二进制的数据传输能一定程度上提高读写效率，特别是更新频率比较高的场景如果还用json进行传输在对json解析上就是一个比较耗时的操作。
+
 
