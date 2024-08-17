@@ -155,6 +155,16 @@ new car
 # 2024-08-08
 To spank or not spank? It's a `controversy` that creates a huge divide among parents.
 
+# 2024-08-09
+If you are a sufferer of fear of the number 13, you may find youself going out of your way to be  extra careful on Friday the 13th.
+
+# 2024-08-10
+Roy is the type of a friend you never introduce to your other friends or bring in to your family, he is, look at his eyes brown full of shit. always just bull shit alltime.
+
+# 2024-08-11
+
+# 2024-08-12
+
 
 
 
