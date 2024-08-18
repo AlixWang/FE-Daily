@@ -159,12 +159,26 @@ To spank or not spank? It's a `controversy` that creates a huge divide among par
 If you are a sufferer of fear of the number 13, you may find youself going out of your way to be  extra careful on Friday the 13th.
 
 # 2024-08-10
-Roy is the type of a friend you never introduce to your other friends or bring in to your family, he is, look at his eyes brown full of shit. always just bull shit alltime.
+Roy is the type of a friend you never introduce to your other friends or bring in to your family, he is, look at his eyes brown full of shit. always just bullshit all the time.
 
 # 2024-08-11
+Agian, `rumbles` of `thunder` we've got the dangerous cloud-to-ground lighting, `brief` heavy rain, `gusty` winds and even the chance of some `hail`.
+
++ rumbles // 轰隆声、轰隆
++ thunder // 雷
++ brief heavy rain // 短时大雨
++ gusty winds // 阵风 
++ hail // 冰雹
 
 # 2024-08-12
+Irish coffee, it's the only drink in the world that providesin a single glass all four `essential` food groups: alcohol, caffeine, suger and fat.
 
++ essential // 必要的，重要的
 
+# 2024-08-13
+
+# 2024-08-14
+
+# 2024-08-15
 
 
