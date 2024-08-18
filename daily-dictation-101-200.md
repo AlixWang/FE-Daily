@@ -176,9 +176,22 @@ Irish coffee, it's the only drink in the world that providesin a single glass al
 + essential // 必要的，重要的
 
 # 2024-08-13
+If you were to wrap up everything - all you concepts into one ideal, what would that be? 
+Educate and obey your conscience 
+
++ conscience // 良心
 
 # 2024-08-14
+Why are you laughing
+Comeon tell me what have i done
+No I like your accent 
+Can you do an English accent
+A nice, beautiful interview
 
 # 2024-08-15
+Gun sales in Colorado have `surged`. 
+
++ surged // 飙升
+
 
 
