@@ -193,5 +193,13 @@ Gun sales in Colorado have `surged`.
 
 + surged // 飙升
 
+# 2024-08-16
+There we are `Disaster` averted Thank you. you got a bit more TV there than you were expecting 
+
+# 2024-08-17
+If sort of turned from just a simple ideal into what's now a phenomenon and we kind of think  that it's gonna spread around the country Good, bed or otherwise.
+
+# 2024-08-18
+
 
 
