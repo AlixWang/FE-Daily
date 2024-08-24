@@ -197,9 +197,22 @@ Gun sales in Colorado have `surged`.
 There we are `Disaster` averted Thank you. you got a bit more TV there than you were expecting 
 
 # 2024-08-17
-If sort of turned from just a simple ideal into what's now a phenomenon and we kind of think  that it's gonna spread around the country Good, bed or otherwise.
+It sort of turned from just a simple ideal into what's now a phenomenon. And we kind of think  that it's gonna spread around the country Good, bed or otherwise.
 
 # 2024-08-18
+I want short back and sides but nothing off the top, whatever you do, don't touch the top, and make it snappy, I having a plane to catch.
+
++ make it snappy // 快点
++ I have a plane to catch // 赶飞机
+
+# 2024-08-19
+
+# 2024-08-20
+# 2024-08-21
+# 2024-08-22
+# 2024-08-23
+# 2024-08-24
+
 
 
 
