@@ -206,10 +206,25 @@ I want short back and sides but nothing off the top, whatever you do, don't touc
 + I have a plane to catch // 赶飞机
 
 # 2024-08-19
+What's speed are you going on the motorway, I'm going 75 miles an hour.
+
++ motorway (UK)// 高速公路 expressway/freeway/tollway(US)
 
 # 2024-08-20
+High inside the Arctic Circle, in one of the most upforgiving enviroments on the planet. two teams of paleontologists `investgate` a 70-million-year-old mystery. They've unearthed dozens of dinosaurs.
+
++ investgate // 调查
+
 # 2024-08-21
+I snapped. It was the last straw.
+
+So, what are you gonna do now? You gonna look for something else in real estate.
+
+Nobody's hiring now. The market's terrible.
+
 # 2024-08-22
+
+
 # 2024-08-23
 # 2024-08-24
 
