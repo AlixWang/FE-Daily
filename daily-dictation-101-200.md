@@ -223,10 +223,26 @@ So, what are you gonna do now? You gonna look for something else in real estate.
 Nobody's hiring now. The market's terrible.
 
 # 2024-08-22
+Ednonton's a surprisingly `diverse` city nearly one in five here were born in another country.
 
++ diverse // 各种各样的
 
 # 2024-08-23
+They're `satisfyingly` `crunchy` chocolately sweet and `gooeylicious` 
+
++ satisfyingly // 令人满意的
++ crunchy // 脆脆的
++ gooeylicious // 黏糊糊的
+
 # 2024-08-24
+
+
+# 2024-08-25
+
+
+# 2024-08-26
+
+
 
 
 
