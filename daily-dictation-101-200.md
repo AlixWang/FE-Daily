@@ -235,12 +235,16 @@ They're `satisfyingly` `crunchy` chocolately sweet and `gooeylicious`
 + gooeylicious // 黏糊糊的
 
 # 2024-08-24
-
+It shouldn't take too long I'd say maybe four hours 
+Really, though, Jerry there's not that match.
 
 # 2024-08-25
-
+It's time to get your weekend back, and turn you "To do"  list into a "To done" list! Ace, the helpfor place.
 
 # 2024-08-26
+
+
+# 2024-08-27
 
 
 
