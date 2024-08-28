@@ -242,7 +242,14 @@ Really, though, Jerry there's not that match.
 It's time to get your weekend back, and turn your "To do"  list into a "To done" list! Ace, the helpfor place.
 
 # 2024-08-26
+People say that the word "orange" doesn't rhyme with anything I can think of a lot of things that rhyme with orange.
 
+What rhymes with orange?
+
+I put my orange 4-inch doorhinge in storage and ate porridge with George! 
+
++ rhyme // 韵律 
++ rhythm // 节奏
 
 # 2024-08-27
 
