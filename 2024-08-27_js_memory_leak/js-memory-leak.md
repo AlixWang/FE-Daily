@@ -21,7 +21,7 @@ globalThis.cancelDemo = demo();
 ```
 如上面代码所示，`bigArrayBuffer`在`demo`执行完毕后是不会被GC回收的，虽然返回的`cancelDemo`函数没有直接引用`bigArrayBuffer`。想要知道为何会如此我们先看看以下几个不会造成内存泄露的例子。
 
-## 聪明的JS垃圾手机器
+## 聪明的JS垃圾收集器
 
 ```javascript
 
@@ -112,33 +112,16 @@ globalThis.cancelDemo = demo();
 ```
 
 这个例子乍看之下有点反直觉，明明`innerFunc2`已经手动置空了为什么`bigArrayBuffer`还是没有被回收。
+结合下面这张图我们来分析一下
 
+[leak]("./leak.png")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+当Demo函数调用后，因为在全局GlobalThis上有属性 对Demo内部函数有引用，因此Demo的作用域会保留。 又由于
+在Demo内部被GlobalThis属性引用的函数内有 BigArrayBuffer的引用，BigArrayBuffer在V8内部也会 被加入到
+Demo的作用域对象里面。 当我们手动解除innerFunction1的对Demo内部函数的 引用时，虽然这时候从逻辑上来看
+此时Demo作用域内部 不存在对BigArrayBuffer大对象的直接引用。GC应该能 正常回收了，但是由于Demo作用域是
+在之前Demo函数 调用时就已经创建了，其内部BigArrayBuffer对象还是不会 动态回收掉，直到我们将innerFunction2
+也解除引用。Demo 作用域整体被GC回收掉。
 
 
 
