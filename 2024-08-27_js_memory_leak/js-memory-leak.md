@@ -114,20 +114,45 @@ globalThis.cancelDemo = demo();
 这个例子乍看之下有点反直觉，明明`innerFunc2`已经手动置空了为什么`bigArrayBuffer`还是没有被回收。
 结合下面这张图我们来分析一下
 
-[leak]("./leak.png")
+![leak](./leak.png)
 
 当Demo函数调用后，因为在全局GlobalThis上有属性 对Demo内部函数有引用，因此Demo的作用域会保留。 又由于
 在Demo内部被GlobalThis属性引用的函数内有 BigArrayBuffer的引用，BigArrayBuffer在V8内部也会 被加入到
 Demo的作用域对象里面。 当我们手动解除innerFunction1的对Demo内部函数的 引用时，虽然这时候从逻辑上来看
-此时Demo作用域内部 不存在对BigArrayBuffer大对象的直接引用。GC应该能 正常回收了，但是由于Demo作用域是
+此时Demo作用域内部 不存在对BigArrayBuffer大对象的直接引用，GC应该能 正常回收了。但是由于Demo作用域是
 在之前Demo函数 调用时就已经创建了，其内部BigArrayBuffer对象还是不会 动态回收掉，直到我们将innerFunction2
-也解除引用。Demo 作用域整体被GC回收掉。
+也解除引用，Demo 作用域整体被GC回收掉。
+
+## 更进一步（不止定时器会触发泄露）
+
+我们来看下以下代码段,当Demo函数执行完成后，因为全局作用域会对`Demo`内部函数有引用，所以在执行完毕后`Demo`函数作用域不会被回收。虽然这里内部函数是一个IIFE立即执行函数也无法触发GC回收。
+
+```javascript
+
+function demo() {
+  const bigArrayBuffer = new ArrayBuffer(100_000_000);
+
+  (() => {
+    console.log(bigArrayBuffer.byteLength);
+  })();
+
+  globalThis.innerFunc = () => {
+    console.log('hello');
+  };
+}
+
+demo();
+
+// bigArrayBuffer 不会如预期般被销毁
+
+```
+
+## 总结一下
+
+这篇文章通过例子比较细致的介绍了，浏览器中不符合预期的一些垃圾回收例子，还是比较有意思的，大家有兴趣可以去看看原文，原文后面还有一段关于使用Eval导致内存泄露的例子，我这里没有贴出来，想要看的朋友点击阅读原文去看看吧！
 
 
 
 
 
-
-
-
-> ![原文地址](https://jakearchibald.com/2024/garbage-collection-and-closures/)
+> [原文地址](https://jakearchibald.com/2024/garbage-collection-and-closures/)
