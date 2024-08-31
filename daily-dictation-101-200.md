@@ -270,10 +270,12 @@ There was a time where I was really `obsessed` with animals and I wanted to be l
 + obsession // n 痴迷
 
 # 2024-08-30
-
+When I was young, I want to look the outside world and find more interesting things that will cost my whole life to impacture it.
 
 
 # 2024-08-31
+Dreams don't have `one-size-fits-all` meaning, but here is the broad interpertations of most common ones. 
+
 
 
 
