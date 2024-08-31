@@ -264,8 +264,14 @@ A search party of 7 mostly strangers `headed out`, when they found Missy she'd b
 + crippled // 残废
 
 # 2024-08-29
+There was a time where I was really `obsessed` with animals and I wanted to be like a dolphin trainer. But I don't know if i would have been able to do that cuz I'm kind of scared of the water! 
+
++ obsessed // adj 痴迷
++ obsession // n 痴迷
 
 # 2024-08-30
+
+
 
 # 2024-08-31
 
