@@ -253,6 +253,21 @@ I put my orange 4-inch doorhinge in storage and ate porridge with George!
 
 # 2024-08-27
 
+What if every single person on earth jumped at exact same time. Could it cause an earthquake or would we not even be able to tell.
+
+# 2024-08-28
+A search party of 7 mostly strangers `headed out`, when they found Missy she'd been `marooned` on the mountain for 8 days "Her `paws` were all turn up and bloody she seemed `crippled` It seemed like it was basically over" .
+
++ headed out // leaving 离开 出发
++ marooned // 被困
++ paws // 爪子
++ crippled // 残废
+
+# 2024-08-29
+
+# 2024-08-30
+
+# 2024-08-31
 
 
 
