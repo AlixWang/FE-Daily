@@ -276,7 +276,18 @@ When I was young, I want to look the outside world and find more interesting thi
 # 2024-08-31
 Dreams don't have `one-size-fits-all` meaning, but here is the broad interpertations of most common ones. 
 
+# 2024-09-01
+We are in the process of creating extreme sport. And so these guys are flipping and flying in the air, doing `stunts` and grabs and flips and spins and tricks, just like the skateboard or the bike or the surfboard anything like that.
 
++ stunts // 特技
+
+# 2024-09-02
+Decide to develop the habit right now, the habbit of focusing on what's right in your world instead of what's wrong. The habbit of focusing on what you do have instead of  what you don't have the situation.
+
+# 2024-09-03
+Popsicle's a brandname, but it's also become a `generic term` for any frozen, sugar-filled deal on stick .
+
++ generic term // 通用术语
 
 
 
