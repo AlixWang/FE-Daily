@@ -289,6 +289,13 @@ Popsicle's a brandname, but it's also become a `generic term` for any frozen, su
 
 + generic term // 通用术语
 
+# 2024-09-04
+But it's the first time we've really, on a global scale, launched a product that was highly relevent to girls.
+
++ stereotype  // 刻板印象
+
+# 2024-09-05
+1916 Claren Saunders opens the first self-service grocery store, The Piggly Wiggly in Memphis Tennessee
 
 
 
