@@ -309,5 +309,12 @@ Oh It's an actual a clown you're not still afraid of clowns, are you?
 NO 
 
 # 2024-09-08
-
++ throws down //扔下
++ racing up // 
++ breaks out // 开始 begins
++ get something/someone off of // 把东西或人从什么上面拿走 
++ pulls me from behind // 从后面拉我
++ turned around  // 转身
++ looked down  // 向下看
++ punched his lights out // 打的他眼冒金星
 
