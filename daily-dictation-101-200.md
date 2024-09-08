@@ -298,6 +298,16 @@ But it's the first time we've really, on a global scale, launched a product that
 1916 Claren Saunders opens the first self-service grocery store, The Piggly Wiggly in Memphis Tennessee
 
 # 2024-09-06
+I roll on the floor laughing I say "that's great, It's really funny. John you're such a card."
 
++ You're such a card // you're so funny
+
+# 2024-09-07
+Dude I'am gonna go check out the view.
+Hey! look at this clown
+Oh It's an actual a clown you're not still afraid of clowns, are you?
+NO 
+
+# 2024-09-08
 
 
