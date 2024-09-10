@@ -318,3 +318,18 @@ NO
 + looked down  // 向下看
 + punched his lights out // 打的他眼冒金星
 
+# 2024-09-09
+`Unbeaching` a whale ....
+This is hard 
+Setting up a tent hard hard hard
+
++ insane // crazy
+
+# 2024-09-10
+Big Sur Highway is `a stretch of` Highway 1 that `encompasses` some of the most breathtaking `scenery` in the world. A 90-mile long destination it hugs land's edge from `dramatic` Carmel Highlands through the towering redwoods of `rustic` Big Sur.
+
++ a lstretch of // segment 一段
++ encompasses // 涵盖
++ scenery // 风景
++ dramatic // 戏剧性的
++ rustic // 质朴的，原生态的
