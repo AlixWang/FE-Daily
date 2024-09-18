@@ -328,8 +328,30 @@ Setting up a tent hard hard hard
 # 2024-09-10
 Big Sur Highway is `a stretch of` Highway 1 that `encompasses` some of the most breathtaking `scenery` in the world. A 90-mile long destination it hugs land's edge from `dramatic` Carmel Highlands through the towering redwoods of `rustic` Big Sur.
 
-+ a lstretch of // segment 一段
++ a stretch of // segment 一段
 + encompasses // 涵盖
 + scenery // 风景
 + dramatic // 戏剧性的
 + rustic // 质朴的，原生态的
+
+# 2024-09-11
+If I said to you, "I'am gonna to shoot through to Maccers this arvo" what would I be saying? I have no clue.  
+
+# 2024-09-12
+September 25, 1957 As hundreds of US army troops stand guard. 9 black students are escorted into Central High School Little Arock, Arkansas. That happens tow days after unruly crowds forced the children to withdraw from  trying to enter the all white school.
+
+# 2024-09-13
+
+
+# 2024-09-13
+
+# 2024-09-14
+
+# 2024-09-15
+
+# 2024-09-16
+
+# 2024-09-17
+
+
+
