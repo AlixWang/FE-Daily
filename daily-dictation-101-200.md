@@ -341,9 +341,15 @@ If I said to you, "I'am gonna to shoot through to Maccers this arvo" what would 
 September 25, 1957 As hundreds of US army troops stand guard. 9 black students are escorted into Central High School Little Arock, Arkansas. That happens tow days after unruly crowds forced the children to withdraw from  trying to enter the all white school.
 
 # 2024-09-13
-
+I wasn't sure that you got my message 
+Oh I wasn't sure you called the right guy
+I think this is yours 
+Thank you, uh. I'm gonna frame this for my wall of shame 
+Realy? there's whole wall? 
 
 # 2024-09-13
+Be sure to watch Season 2 of Enter the Dojo  starting tuesday October 9, 2012
+you never know what might happen.
 
 # 2024-09-14
 
