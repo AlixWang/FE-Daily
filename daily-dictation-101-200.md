@@ -347,17 +347,17 @@ I think this is yours
 Thank you, uh. I'm gonna frame this for my wall of shame 
 Realy? there's whole wall? 
 
-# 2024-09-13
+# 2024-09-14
 Be sure to watch Season 2 of Enter the Dojo  starting tuesday October 9, 2012
 you never know what might happen.
 
-# 2024-09-14
-
 # 2024-09-15
 
-# 2024-09-16
-
 # 2024-09-17
+
+# 2024-09-19
+
+# 2024-09-21
 
 
 
