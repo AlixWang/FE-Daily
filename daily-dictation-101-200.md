@@ -361,7 +361,7 @@ Amid `the bustle` of Manhatton, Tim Doner `blends in` like any other teenager. H
 It's just the movies Tim's watching happen to be in Farsi, his comics are in Bengali, and his ipod feature hits from Iran. It is the life of the teenage hyperpolyglot --- perhaps one of the youngest in the world.
 
 # 2024-09-17
-
+The problem with just copying The DNA is like taking a book and all you copy by the letters in the book and you don't copy the spacing between the words or the pronunciation.
 
 # 2024-09-18
 
