@@ -361,9 +361,33 @@ Amid `the bustle` of Manhatton, Tim Doner `blends in` like any other teenager. H
 It's just the movies Tim's watching happen to be in Farsi, his comics are in Bengali, and his ipod feature hits from Iran. It is the life of the teenage hyperpolyglot --- perhaps one of the youngest in the world.
 
 # 2024-09-17
-The problem with just copying The DNA is like taking a book and all you copy by the letters in the book and you don't copy the spacing between the words or the pronunciation.
+The problem with just copying The DNA is like taking a book and all you copy by the letters in the book and you don't copy the spacing between the words or the punctuation.
+
++ punctuation // 标点
 
 # 2024-09-18
+The Norwegian Nobel `Committee` `applauded` the EU's efforts to hold The union together in the face of `debt` `crisis` and its six decades of work to `advance` peace and `reconciliation`.
 
++ Committee // 委员会
++ applauded // 叫好、鼓掌、赞同
++ debt // 债务
++ crisis // 危机
++ advance // 进步 推进
++ reconciliation // 和解
 
-
+# 2024-09-18
+# 2024-09-19
+# 2024-09-20
+# 2024-09-21
+# 2024-09-22
+# 2024-09-23
+# 2024-09-24
+# 2024-09-25
+# 2024-09-26
+# 2024-09-27
+# 2024-09-28
+# 2024-09-29
+# 2024-09-30
+# 2024-10-01
+# 2024-10-02
+# 2024-10-03
