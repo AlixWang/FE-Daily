@@ -368,7 +368,7 @@ The problem with just copying The DNA is like taking a book and all you copy by 
 # 2024-09-18
 The Norwegian Nobel `Committee` `applauded` the EU's efforts to hold The union together in the face of `debt` `crisis` and its six decades of work to `advance` peace and `reconciliation`.
 
-+ Committee // 委员会
++ committee // 委员会
 + applauded // 叫好、鼓掌、赞同
 + debt // 债务
 + crisis // 危机
@@ -376,6 +376,22 @@ The Norwegian Nobel `Committee` `applauded` the EU's efforts to hold The union t
 + reconciliation // 和解
 
 # 2024-09-18
+We'll all be **burning the midnight oil** on this one. 
+That would be on the `inadvisable`. 
+Excuse me?  
+If you attempt to `ignite` a `petroleum product` on this ship at 0:00 hours, you will `activate` the fire `suppression` system. 
+That was just an expression system. 
+Expression of what? 
+**A figure of speech.**
+
++ burning the midnight oil // 挑灯夜战
++ inadvisable // 不明智的, no a good idea
++ ignite // 点燃
++ activate // start
++ suppression // 抑制
++ a figure of speech //修辞手法
+
+
 # 2024-09-19
 # 2024-09-20
 # 2024-09-21
