@@ -393,8 +393,25 @@ Expression of what?
 
 
 # 2024-09-19
+What a haul  A Picasso, a Matisse, two Monets, a Gaugain, and more. as good art gets. The value more than a hundred million dorllars.
+
+
 # 2024-09-20
+Big-name hotels reportedly bought millions of the `faulty` locks from a company called Onity.
+I would say millions of people worldwide would be at risk every single day until this problem fixed.
+
++ faulty // something have problem 
+
 # 2024-09-21
+Why not a gun-gun?
+Our enemies have gun-guns?
+Are these paint balls?
+No These are these knock-out gas.
+That's insane. 
+you said my outfit was `pimp`!
+
++ pimp // 炫酷
+
 # 2024-09-22
 # 2024-09-23
 # 2024-09-24
