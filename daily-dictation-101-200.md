@@ -420,7 +420,15 @@ cholesterol... does drinking beer help your cholesterol levels.
 + strengthen // 加强
 
 # 2024-09-23
+I `equate` Persia with `luxury`, with rich `tapestries` and beautiful `rugs`, and my mother's fat, `fuzzy` Persian cat named Otis. But I also think of a Fantastic Persian King named Cyrus the Great who believed in religious and cultural `tolerance` and who freed The Jews from Babylon to return to Israel.
 
++ luxury // 奢华
++ tapestries // 挂毯
++ equate // 等同
++ fuzzy // 模糊的，有绒毛的, equal furry
++ rugs // 地毯
++ tolerance // 宽容
++ religious // 宗教
 
 # 2024-09-24
 # 2024-09-25
