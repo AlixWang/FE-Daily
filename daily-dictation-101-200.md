@@ -414,14 +414,14 @@ you said my outfit was `pimp`!
 
 # 2024-09-22
 Beer true or false, helps `strengthen` your bones? 
-For women in perticular cholesterol... 
-does drinking beer, 
-beer help your cholesterol levels.
+For women in perticular: 
+cholesterol... does drinking beer help your cholesterol levels.
 
 + strengthen // 加强
 
-
 # 2024-09-23
+
+
 # 2024-09-24
 # 2024-09-25
 # 2024-09-26
