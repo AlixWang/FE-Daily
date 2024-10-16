@@ -438,9 +438,14 @@ Do not drive. Let me repeat that please, do not drive. we've now sent a message 
 # 2024-09-25
 With hundreds of styles that fit together beautifully thousands of colors ideal, great ranges of kitchens small living spaces and lots of wonderful plants for any garden with a little inspiration. You can achieve anything Homebase, make a house home.
 
-
 # 2024-09-26
+According to the polls, Obama and Romney are still neck and neck. Romney has still a very strong lead among white voters. 
+
++ neck and neck // 并驾齐驱，不相上下
+
 # 2024-09-27
+What is it all about? This is really a guide to how become world-class in just about anything in 6 months or less.
+
 # 2024-09-28
 # 2024-09-29
 # 2024-09-30
