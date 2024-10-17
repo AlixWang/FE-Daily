@@ -368,7 +368,7 @@ The problem with just copying The DNA is like taking a book and all you copy by 
 # 2024-09-18
 The Norwegian Nobel `Committee` `applauded` the EU's efforts to hold The union together in the face of `debt` `crisis` and its six decades of work to `advance` peace and `reconciliation`.
 
-+ Committee // 委员会
++ committee // 委员会
 + applauded // 叫好、鼓掌、赞同
 + debt // 债务
 + crisis // 危机
@@ -376,15 +376,76 @@ The Norwegian Nobel `Committee` `applauded` the EU's efforts to hold The union t
 + reconciliation // 和解
 
 # 2024-09-18
+We'll all be **burning the midnight oil** on this one. 
+That would be on the `inadvisable`. 
+Excuse me?  
+If you attempt to `ignite` a `petroleum product` on this ship at 0:00 hours, you will `activate` the fire `suppression` system. 
+That was just an expression system. 
+Expression of what? 
+**A figure of speech.**
+
++ burning the midnight oil // 挑灯夜战
++ inadvisable // 不明智的, no a good idea
++ ignite // 点燃
++ activate // start
++ suppression // 抑制
++ a figure of speech //修辞手法
+
+
 # 2024-09-19
+What a haul  A Picasso, a Matisse, two Monets, a Gaugain, and more. as good art gets. The value more than a hundred million dorllars.
+
+
 # 2024-09-20
+Big-name hotels reportedly bought millions of the `faulty` locks from a company called Onity.
+I would say millions of people worldwide would be at risk every single day until this problem fixed.
+
++ faulty // something have problem 
+
 # 2024-09-21
+Why not a gun-gun?
+Our enemies have gun-guns?
+Are these paint balls?
+No These are these knock-out gas.
+That's insane. 
+you said my outfit was `pimp`!
+
++ pimp // 炫酷
+
 # 2024-09-22
+Beer true or false, helps `strengthen` your bones? 
+For women in perticular: 
+cholesterol... does drinking beer help your cholesterol levels.
+
++ strengthen // 加强
+
 # 2024-09-23
+I `equate` Persia with `luxury`, with rich `tapestries` and beautiful `rugs`, and my mother's fat, `fuzzy` Persian cat named Otis. But I also think of a Fantastic Persian King named Cyrus the Great who believed in religious and cultural `tolerance` and who freed The Jews from Babylon to return to Israel.
+
++ luxury // 奢华
++ tapestries // 挂毯
++ equate // 等同
++ fuzzy // 模糊的，有绒毛的, equal furry
++ rugs // 地毯
++ tolerance // 宽容
++ religious // 宗教
+
 # 2024-09-24
+Do not drive. Let me repeat that please, do not drive. we've now sent a message to all taxi `limo` and livery drivers to get off the roads immediately.
+
++ limo // 豪华
+
 # 2024-09-25
+With hundreds of styles that fit together beautifully thousands of colors ideal, great ranges of kitchens small living spaces and lots of wonderful plants for any garden with a little inspiration. You can achieve anything Homebase, make a house home.
+
 # 2024-09-26
+According to the polls, Obama and Romney are still neck and neck. Romney has still a very strong lead among white voters. 
+
++ neck and neck // 并驾齐驱，不相上下
+
 # 2024-09-27
+What is it all about? This is really a guide to how become world-class in just about anything in 6 months or less.
+
 # 2024-09-28
 # 2024-09-29
 # 2024-09-30
