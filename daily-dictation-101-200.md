@@ -444,10 +444,19 @@ According to the polls, Obama and Romney are still neck and neck. Romney has sti
 + neck and neck // 并驾齐驱，不相上下
 
 # 2024-09-27
-What is it all about? This is really a guide to how become world-class in just about anything in 6 months or less.
+What is it all about? This is really a guide to how to become `world-class` in just about anything in 6 months or less.
+
++ world-class // 世界一流 great/leader/outstanding
 
 # 2024-09-28
+There's a lot more `demand` for people who wanna just improve themselves than anyone would have `guessed`. 
+
++ demand // craving/interest
++ guessed // thought/supposed/assumed
+
 # 2024-09-29
+
+
 # 2024-09-30
 # 2024-10-01
 # 2024-10-02
