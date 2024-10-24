@@ -455,6 +455,10 @@ There's a lot more `demand` for people who wanna just improve themselves than an
 + guessed // thought/supposed/assumed
 
 # 2024-09-29
+What are you doing?
+Did... did you just double-dip that chip?
+you dipped the chip, you took a bite.
+and you dipped again.
 
 
 # 2024-09-30
