@@ -460,8 +460,17 @@ Did... did you just double-dip that chip?
 you dipped the chip, you took a bite.
 and you dipped again.
 
-
 # 2024-09-30
+be careful with the car.
+And don't more the seat.
+I've got it right where I like it.
+
+2 and 10.
+Don't peel out.
+I won't. 
+
+
+
 # 2024-10-01
 # 2024-10-02
 # 2024-10-03
