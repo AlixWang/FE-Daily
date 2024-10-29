@@ -469,8 +469,10 @@ I've got it right where I like it.
 Don't peel out.
 I won't. 
 
-
-
 # 2024-10-01
+One of the things alex doesn't have is a knee-jerk response to the types of objects that you present him.
+
 # 2024-10-02
+
+
 # 2024-10-03
