@@ -473,6 +473,11 @@ I won't.
 One of the things alex doesn't have is a knee-jerk response to the types of objects that you present him.
 
 # 2024-10-02
+Sears has Toshiba 50-inch LED. It normally `retails` for $799, it's `marked down` to $299.
 
++ retails // 零售
++ marked down // 减价
 
 # 2024-10-03
+Fortunately, you can flik a switch which diverts the train down a folk in that track away from those five people, but at a price 
+question should you flik the switch.
