@@ -444,11 +444,40 @@ According to the polls, Obama and Romney are still neck and neck. Romney has sti
 + neck and neck // 并驾齐驱，不相上下
 
 # 2024-09-27
-What is it all about? This is really a guide to how become world-class in just about anything in 6 months or less.
+What is it all about? This is really a guide to how to become `world-class` in just about anything in 6 months or less.
+
++ world-class // 世界一流 great/leader/outstanding
 
 # 2024-09-28
+There's a lot more `demand` for people who wanna just improve themselves than anyone would have `guessed`. 
+
++ demand // craving/interest
++ guessed // thought/supposed/assumed
+
 # 2024-09-29
+What are you doing?
+Did... did you just double-dip that chip?
+you dipped the chip, you took a bite.
+and you dipped again.
+
 # 2024-09-30
+be careful with the car.
+And don't more the seat.
+I've got it right where I like it.
+
+2 and 10.
+Don't peel out.
+I won't. 
+
 # 2024-10-01
+One of the things alex doesn't have is a knee-jerk response to the types of objects that you present him.
+
 # 2024-10-02
+Sears has Toshiba 50-inch LED. It normally `retails` for $799, it's `marked down` to $299.
+
++ retails // 零售
++ marked down // 减价
+
 # 2024-10-03
+Fortunately, you can flik a switch which diverts the train down a folk in that track away from those five people, but at a price 
+question should you flik the switch.
