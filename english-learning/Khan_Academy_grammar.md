@@ -92,3 +92,48 @@ I would walk
 >what's differnce between will and would
 will is used to express future tense, would is used to express past tense.
 
+# pronouns
+
+# relative pronouns
+who, whom, whose, which, that
+
+# demonstrative pronouns
+this, that, these, those
+
+# indefinite pronouns
+all, another, any, anybody, anyone, anything, both, each, either, everybody, everyone, everything, few, many, neither, nobody, none, no one, nothing, one, other, several, some, somebody, someone, something
+
+# personal pronouns
+I, me, you, he, him, she, her, it, we, us, they, them
+
+# possessive pronouns
+mine, yours, his, hers, its, ours, theirs
+
+# reflexive pronouns
+myself, yourself, himself, herself, itself, ourselves, yourselves, themselves
+
+# interrogative pronouns
+who, whom, whose, which, what
+
+
+# subject and object pronouns and possessive pronouns
+
+| subject | object | possessive pronoun |
+|---------|--------|--------------------|
+| I       | me     |        mine        |
+| you     | you    |        yours       |
+| he      | him    |        his         |
+| she     | her    |        hers        |
+| it      | it     |        its         |
+| we      | us     |        ours        |
+| they    | them   |        theirs      |
+
+
+
+
+
+
+
+
+
+
