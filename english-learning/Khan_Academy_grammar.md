@@ -128,6 +128,16 @@ who, whom, whose, which, what
 | we      | us     |        ours        |
 | they    | them   |        theirs      |
 
+# whose usage
+whose is used to ask about possession.
+# what's difference between who and whose
+who is used to ask about the subject, whose is used to ask about possession.
+
+
+# Adjective
+
+# what is adjective order rule dosa-scopm, and the usage
+dosa-scopm is an acronym for determiner, opinion, size, age, shape, color, origin, material, and purpose. The order of adjectives is determiner, opinion, size, age, shape, color, origin, material, and purpose.
 
 
 
