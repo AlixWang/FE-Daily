@@ -481,3 +481,17 @@ Sears has Toshiba 50-inch LED. It normally `retails` for $799, it's `marked down
 # 2024-10-03
 Fortunately, you can flik a switch which diverts the train down a folk in that track away from those five people, but at a price 
 question should you flik the switch.
+
++ sympathey // 同情
++ empathy // 同理心
+
+# 2024-10-04
+Well I'd pay off my bills and retire, just like everybody else.
+
+# 2024-10-05
+Well, this is it, we're down south, Willie, How does it fell to be back in the land of Cotton?
+
+Tennessee anin't bad, but she ain't a pretty piece like old home, Mississippi.
+
+
+
