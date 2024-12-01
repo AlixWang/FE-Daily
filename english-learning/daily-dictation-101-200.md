@@ -493,5 +493,6 @@ Well, this is it, we're down south, Willie, How does it fell to be back in the l
 
 Tennessee anin't bad, but she ain't a pretty piece like old home, Mississippi.
 
-
+# 2024-10-06
+Today we salute you Mr Giant Taco Salad Inventor. Ground beef, refried beans, guacamole, cheese, sour cream and if there is any room left a few shreds of lettuce! I don't see no lettuce.
 

@@ -140,10 +140,15 @@ who is used to ask about the subject, whose is used to ask about possession.
 dosa-scopm is an acronym for determiner, opinion, size, age, shape, color, origin, material, and purpose. The order of adjectives is determiner, opinion, size, age, shape, color, origin, material, and purpose.
 
 
+# comparative and superlative adjectives
 
+| adjective | comparative | superlative | description |
+|-----------|-------------|-------------| ------------|
+| cute      | cuter       | cutest      |             |
+| big       | bigger      | biggest     |             |
+| short     | shorter     | shortest    |             |
+| hot       | hotter      | hottest     |             |
+| shiny     | shinier     | shiniest    |             |
 
-
-
-
-
-
+# what's the rule for forming comparative and superlative adjectives
+To form the comparative and superlative adjectives, add -er to the end of the adjective to form the comparative and add -est to the end of the adjective to form the superlative.
