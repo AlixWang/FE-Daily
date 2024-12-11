@@ -152,3 +152,23 @@ dosa-scopm is an acronym for determiner, opinion, size, age, shape, color, origi
 
 # what's the rule for forming comparative and superlative adjectives
 To form the comparative and superlative adjectives, add -er to the end of the adjective to form the comparative and add -est to the end of the adjective to form the superlative.
+
+
+# Months of the year
+
+| month | abbreviation |
+|-------|--------------|
+| January | Jan.       |
+| February | Feb.      |
+| March   | Mar.       |
+| April   | Apr.      |
+| May     | May       |
+| June    | Jun.      |
+| July    | Jul.      |
+| August  | Aug.      |
+| September | Sep.    |
+| October | Oct.     |
+| November | Nov.    |
+| December | Dec.    |
+
+
