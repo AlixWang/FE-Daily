@@ -496,3 +496,13 @@ Tennessee anin't bad, but she ain't a pretty piece like old home, Mississippi.
 # 2024-10-06
 Today we salute you Mr Giant Taco Salad Inventor. Ground beef, refried beans, guacamole, cheese, sour cream and if there is any room left a few shreds of lettuce! I don't see no lettuce.
 
+# 2024-10-07
+Yeah, I've lost so much weight. that if I don't hold these up.
+
+they'll fall, and I'm not gonna do that right now! But uh,
+
+I'm really please with this and I just wanna share this with everybody.
+
+Thanks a lot.
+
+
