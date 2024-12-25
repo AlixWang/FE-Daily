@@ -505,4 +505,10 @@ I'm really please with this and I just wanna share this with everybody.
 
 Thanks a lot.
 
+# 2024-10-08
+As you know
+it was his noise 
+that gave him away with every fib.
+
+
 
