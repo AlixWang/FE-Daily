@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Zodiac Signs Grid</title>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<style>
+		/* 引入更多Google字体 */
+		@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Long+Cang&family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap');
+
+		/* 全局字体设置 */
+		body {
+			font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 20px auto;
+			padding: 20px;
+		}
+
+		.zodiac-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 25px;
+			margin-bottom: 20px;
+		}
+
+		.zodiac-card {
+			position: relative;
+			background: white;
+			border-radius: 25px;
+			padding: 20px;
+			margin: 15px;
+			box-shadow: 0 3px 10px rgba(255, 182, 193, 0.2);
+		}
+
+		.zodiac-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background:
+				radial-gradient(circle at 90% 10%, rgba(255, 182, 193, 0.1) 3px, transparent 4px),
+				radial-gradient(circle at 10% 90%, rgba(255, 182, 193, 0.1) 3px, transparent 4px),
+				linear-gradient(135deg, rgba(255, 242, 246, 0.8), rgba(255, 255, 255, 0.9));
+			border-radius: 25px;
+			z-index: -1;
+		}
+
+		.zodiac-header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			margin-bottom: 25px;
+			padding-bottom: 15px;
+			border-bottom: 1px dashed #ffd6e7;
+		}
+
+		.zodiac-icon {
+			font-size: 28px;
+		}
+
+		.zodiac-title {
+			font-family: 'Zhi Mang Xing', cursive;
+			font-size: 32px;
+			background: linear-gradient(45deg, #ff6ba6, #ff9ec3);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.2);
+			margin-bottom: 25px;
+			text-align: center;
+			letter-spacing: 3px;
+		}
+
+		.fortune-section {
+			margin-bottom: 15px;
+			text-align: center;
+		}
+
+		.fortune-icon {
+			font-size: 20px;
+			margin-bottom: 8px;
+		}
+
+		.fortune-title {
+			font-family: 'Long Cang', cursive;
+			font-size: 20px;
+			font-weight: 500;
+			background: linear-gradient(45deg, #ff6ba6, #ff8eb3);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: 1.5px;
+			position: relative;
+		}
+
+		.fortune-item-title::after {
+			content: '';
+			position: absolute;
+			bottom: -4px;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(to right, #ff9ec3, transparent);
+			opacity: 0.4;
+			transform: scaleX(0.8);
+			transition: transform 0.3s ease;
+		}
+
+		.fortune-item-content {
+			font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif;
+			font-size: 15px;
+			line-height: 2;
+			letter-spacing: 0.5px;
+			color: #666;
+			font-weight: 400;
+			text-align: justify;
+		}
+
+		.fortune-item-content strong {
+			font-weight: 500;
+			color: transparent;
+			background: linear-gradient(45deg, #ff6ba6, #ff9ec3);
+			-webkit-background-clip: text;
+			padding: 0 2px;
+		}
+
+		.lucky-tips {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			margin-top: 20px;
+		}
+
+		.lucky-item {
+			display: inline-flex;
+			align-items: center;
+			padding: 6px 12px;
+			background: rgba(255, 192, 203, 0.15);
+			border-radius: 8px;
+			gap: 6px;
+		}
+
+		.lucky-item-icon {
+			font-size: 15px;
+		}
+
+		.lucky-item-label {
+			color: #ff6ba6;
+			font-size: 13px;
+		}
+
+		.lucky-item-content {
+			color: #666;
+			font-size: 13px;
+		}
+
+		.lucky-item-separator {
+			color: #ff6ba6;
+			margin: 0 2px;
+		}
+
+		.qrcode-section {
+			margin-top: 25px;
+			padding-top: 20px;
+			border-top: 1px dashed #ffd6e7;
+			text-align: center;
+		}
+
+		.qrcode-title {
+			color: #ff6ba6;
+			font-size: 16px;
+			margin-bottom: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+		}
+
+		.qrcode-image {
+			width: 120px;
+			height: 120px;
+			margin: 0 auto 10px;
+			border-radius: 10px;
+		}
+
+		.qrcode-text {
+			color: #ff9ec3;
+			font-size: 12px;
+			line-height: 1.6;
+		}
+
+		.export-button {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			padding: 10px 20px;
+			background: #ff6ba6;
+			color: white;
+			border: none;
+			border-radius: 20px;
+			cursor: pointer;
+			font-size: 14px;
+		}
+
+		.fortune-item {
+			position: relative;
+			padding: 16px 20px;
+			margin-bottom: 15px;
+			background: rgba(255, 255, 255, 0.8);
+			border-radius: 15px;
+			transition: all 0.3s ease;
+		}
+
+		.fortune-item-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 12px;
+		}
+
+		.fortune-item-emoji {
+			font-size: 24px;
+			margin-right: 10px;
+			filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
+			transform: translateY(-1px);
+		}
+
+		.lucky-label {
+			font-family: 'Long Cang', cursive;
+			font-size: 18px;
+			background: linear-gradient(45deg, #ff8eb3, #ffb3d1);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: 1px;
+		}
+
+		.lucky-content {
+			font-family: 'Zen Maru Gothic', sans-serif;
+			font-size: 14px;
+			font-weight: 500;
+			color: #ff9ec3;
+			letter-spacing: 0.5px;
+		}
+
+		.footer-text {
+			font-family: 'Zhi Mang Xing', cursive;
+			font-size: 18px;
+			background: linear-gradient(45deg, #ff9ec3, #ffb3d1);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-align: center;
+			margin-top: 25px;
+			letter-spacing: 2px;
+		}
+
+		.fortune-item-title,
+		.fortune-item-content {
+			transition: all 0.3s ease;
+		}
+
+		.fortune-item:hover .fortune-item-title {
+			transform: translateX(3px);
+			color: #ff5b96;
+		}
+
+		.fortune-item:hover .fortune-item-content {
+			color: #555;
+		}
+
+		.fortune-item::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 3px;
+			height: 70%;
+			background: linear-gradient(to bottom, #ffd6e7, #ff9ec3);
+			border-radius: 3px;
+		}
+
+		.fortune-item {
+			box-shadow: 0 2px 8px rgba(255, 182, 193, 0.1);
+		}
+
+		.fortune-item:hover {
+			transform: translateX(5px);
+			box-shadow: 0 2px 12px rgba(255, 182, 193, 0.2);
+		}
+
+		.fortune-item+.fortune-item {
+			margin-top: 20px;
+		}
+
+		.fortune-item:last-child {
+			margin-bottom: 0;
+		}
+
+		.fortune-item::after {
+			content: '';
+			position: absolute;
+			right: 15px;
+			bottom: 15px;
+			width: 40px;
+			height: 40px;
+			background: radial-gradient(circle at center, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+			border-radius: 50%;
+			z-index: 0;
+		}
+
+		.fortune-item-header,
+		.fortune-item-content {
+			position: relative;
+			z-index: 1;
+		}
+
+		.fortune-item-title::before,
+		.lucky-label::before,
+		.footer-text::before {
+			content: attr(data-text);
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: -1;
+			filter: blur(4px);
+			opacity: 0.3;
+			color: #ff9ec3;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="zodiac-grid" id="zodiacGrid">
+			<!-- 水瓶座 -->
+			<div class="zodiac-card" id="aquarius">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♒️</span>
+					<span>水瓶座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						创新<strong>灵感爆发</strong>的一天！你的独特想法会让所有人眼前一亮。科技相关的项目特别顺利，可能有重大突破。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						特立独行的魅力特别吸引人！可能在科技交流会或创新论坛上遇到志同道合的对象。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						科技和创新领域学习效果特别好！在线课程或远程教育都能带来意外收获。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						创新项目大有突破！你的独特视角会为团队带来新思路。网络和科技相关工作特别顺利。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						尝试新式运动项目效果不错！但要注意用眼过度，记得多休息。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						科技投资机会不错！可能通过创新项目获得额外收入。注意控制购买电子产品的冲动。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">电光蓝</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">7、11</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">科技产品</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">创新论坛</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="pisces">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♓️</span>
+					<span>双鱼座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						艺术<strong>灵感爆发</strong>的一天！直觉特别准确，创作欲望强烈。你的同理心会帮助你更好地理解他人。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						浪漫指数爆表！艺术相关场合容易遇到心动对象。已有伴的双鱼座，共同欣赏艺术能增进感情。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						艺术和心理学领域特别有悟性！想象力丰富，创作灵感源源不断。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						创意工作特别顺利！你的想象力会为项目带来独特视角。心理咨询或艺术创作相关工作会有突破。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						水中运动特别适合！游泳或水上瑜伽能让身心放松。记得保持充足睡眠。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						艺术投资眼光准确！收藏品可能升值。直觉购物可能淘到心仪好物。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">海蓝色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">2、7</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">海洋饰品</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">艺术展</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="aries">
+
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♈️</span>
+					<span>白羊座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天如同<strong>早春暖阳</strong>，充满无限活力！特别适合展开新计划或尝试新事物。宇宙给予你满满的行动力。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						单身的你可能在咖啡厅或图书馆邂逅心动的对象。已有伴的白羊今天与伴侣互动特别甜蜜。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						竞技类学习效果特别好！动手实践的课程会让你学习兴趣倍增。体育竞赛可能获得好成绩。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						领导力爆发！创业机会不错，团队合作顺利。主动出击会收获意外惊喜。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						精力特别充沛！适合尝试高强度运动。记得补充蛋白质，保持充足水分。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						投资眼光准确！竞技类项目可能带来收益。主动出击的理财方式特别有利。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">红色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">1、9</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">运动装备</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">竞技运动</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="taurus">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♉️</span>
+					<span>金牛座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天特别适合<strong>享受生活</strong>！稳定踏实的节奏让你心情愉悦。品味美食、欣赏艺术都能带来满满幸福感。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						美食相关场合易遇良缘！约会建议选择高级餐厅或甜品店。已有伴的金牛座，一起享受美食能增进感情。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						财经和艺术领域学习特别有感觉！实践课程效果显著，手工艺术创作有突破。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						稳扎稳打出成绩！财务相关工作特别顺利。你的专业能力会得到领导赏识。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						养生保健效果特别好！适合做SPA或按摩。注意适度运动，保持规律作息。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						理财眼光特别准！稳健投资会有不错收益。艺术品投资可能带来意外惊喜。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">绿色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">6、15</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">植物盆栽</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">美食品鉴</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="gemini">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♊️</span>
+					<span>双子座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>口才出众</strong>！思维特别活跃，沟通顺畅无阻。社交活动会带来意外惊喜。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						言语魅力特别强！社交场合容易遇到心动对象。已有伴的双子座，与伴侣的交流格外甜蜜。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						语言学习效果显著！表达能力提升，演讲和写作都很出色。适合参加知识分享会。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						演讲和写作工作特别顺利！销售谈判有望达成。新媒体创作灵感爆发。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						需要适当放松心情！建议做些轻松运动。避免过度思虑，保持心情愉悦。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						信息差带来财运！短线投资有利。社交场合可能获得理财建议。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">黄色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">3、7</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">笔记本</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">演讲会</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="cancer">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♋️</span>
+					<span>巨蟹座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>情感丰富</strong>！直觉特别敏锐，容易感受他人情绪。家庭关系和谐，亲情温暖。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						家庭聚会易遇良缘！温馨的约会最适合你。已有伴的巨蟹座，与伴侣共处家中特别甜蜜。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						心理和护理领域学习顺利！同理心强，容易理解深层知识。照顾类技能提升快。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						照顾和关怀类工作出色！你的温柔会得到他人认可。家政服务相关工作特别顺利。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						需要注意情绪管理！建议多亲近大自然。泡个温暖的澡能让心情平静。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						房产投资机会不错！家居消费增加但物有所值。理财以稳健为主。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">银色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">2、7</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">月亮饰品</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">家庭聚会</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="leo">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♌️</span>
+					<span>狮子座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>光芒四射</strong>！领导力特别强，容易成为人群焦点。自信魅力让所有人为你倾倒。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						派对和演出场合桃花旺！你的魅力让人无法抗拒。已有伴的狮子座，与伴侣共同出席活动特别亮眼。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						表演和管理课程进展顺利！领导力培训效果显著。公开演讲能力提升快。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						领导和表演类工作出色！你的魅力能带动整个团队。创意展示特别吸引眼球。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						适合户外阳光运动！晒太阳对身心都有好处。保持积极乐观的心态很重要。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						大胆投资有好收益！艺术收藏可能升值。表演相关收入可观。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">金色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">1、8</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">太阳饰品</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">舞台表演</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="virgo">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♍️</span>
+					<span>处女座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>思维缜密</strong>！分析能力特别强，能发现细节中的关键。完美主义带来好运。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						工作场合易遇良缘！知性约会最适合你。已有伴的处女座，与伴侣一起研究问题增进感情。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						研究和分析类学习特别顺利！数据处理能力提升。专业技能进步显著。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						数据分析工作出色！研究项目有重要发现。你的专业建议得到重视。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						养生计划效果显著！规律作息很重要。注意劳逸结合，避免过度完美主义。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						理财规划特别准确！稳健投资有好收益。记账理财能发现省钱妙招。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">棕色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">5、8</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">手账本</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">读书会</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="libra">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♎️</span>
+					<span>天秤座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>优雅迷人</strong>！人际关系特别和谐，社交魅力十足。艺术品味得到他人赞赏。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						艺术场合易遇良缘！浪漫约会让感情升温。已有伴的天秤座，与伴侣共赏艺术特别甜蜜。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						艺术和法律领域进展顺利！审美能力提升。调解谈判技巧有突破。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						谈判和调解工作出色！你的外交手腕让各方满意。艺术创作获得好评。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						美容养生效果显著！瑜伽舞蹈特别适合。保持优雅仪态对身心都有益。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						合作投资有好收益！艺术品收藏升值。社交场合可能带来财运。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">粉色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">6、9</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">艺术品</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">艺术展</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="scorpio">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♏️</span>
+					<span>天蝎座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>洞察力惊人</strong>！直觉特别准确，能看透事物本质。神秘魅力让人着迷。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						神秘场合易遇良缘！深度对话最能打动人心。已有伴的天蝎座，与伴侣的感情更加深入。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						研究和心理学领域进展顺利！探索神秘学问有收获。深度思考能力提升。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						调查和咨询工作出色！你的分析让问题迎刃而解。神秘学相关工作有突破。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						冥想效果特别好！需要适当独处时间。瑜伽或太极能平衡身心。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						投资眼光特别准！隐性收益可观。神秘学相关投资有好机会。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">深红色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">4、8</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">水晶石</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">心理工作坊</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="sagittarius">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♐️</span>
+					<span>射手座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>充满冒险精神</strong>！乐观开朗的态度带来好运。远方有意外惊喜等着你。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						旅行中易遇良缘！异国风情特别吸引你。已有伴的射手座，一起规划旅行能增进感情。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						哲学和旅游领域进展顺利！外语学习效果好。开阔视野有助于提升智慧。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						教育和出版工作出色！你的见解让人耳目一新。国际合作项目有好机会。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						户外运动特别适合！远足或骑行能让身心舒畅。保持乐观心态很重要。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						远方带来好财运！国际投资有利。旅行中可能遇到意外收获。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">紫色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">3、9</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">指南针</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">远足旅行</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+			<div class="zodiac-card" id="capricorn">
+				<div class="zodiac-header">
+					<span class="zodiac-icon">♑️</span>
+					<span>摩羯座</span>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">⭐</span>
+						<span class="fortune-item-title" data-text="整体运势">整体运势</span>
+					</div>
+					<p class="fortune-item-content">
+						今天的你<strong>目标明确</strong>！踏实稳重的态度带来好运。职场发展有重要突破。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💕</span>
+						<span class="fortune-item-title" data-text="桃花运势">桃花运势</span>
+					</div>
+					<p class="fortune-item-content">
+						工作场合易遇良缘！事业型约会特别合适。已有伴的摩羯座，共同规划未来能增进感情。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">📚</span>
+						<span class="fortune-item-title" data-text="学习运">学习运</span>
+					</div>
+					<p class="fortune-item-content">
+						管理和金融领域进展顺利！专业技能提升快。职场进修收获丰富。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💼</span>
+						<span class="fortune-item-title" data-text="工作运">工作运</span>
+					</div>
+					<p class="fortune-item-content">
+						规划和管理工作出色！你的建议得到上级重视。长期项目有重要进展。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💪</span>
+						<span class="fortune-item-title" data-text="健康运">健康运</span>
+					</div>
+					<p class="fortune-item-content">
+						规律运动效果显著！健身计划进展顺利。注意劳逸结合，保持良好作息。
+					</p>
+				</div>
+
+				<div class="fortune-item">
+					<div class="fortune-item-header">
+						<span class="fortune-item-emoji">💰</span>
+						<span class="fortune-item-title" data-text="财运">财运</span>
+					</div>
+					<p class="fortune-item-content">
+						长线投资特别有利！职场收益可观。稳健理财带来好回报。
+					</p>
+				</div>
+
+				<div class="lucky-tips">
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎨</span>
+						<span class="lucky-item-label">幸运色</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">深棕色</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🔢</span>
+						<span class="lucky-item-label">幸运数字</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">4、7</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">🎁</span>
+						<span class="lucky-item-label">开运物</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">名片夹</span>
+					</div>
+					<div class="lucky-item">
+						<span class="lucky-item-icon">📍</span>
+						<span class="lucky-item-label">推荐</span>
+						<span class="lucky-item-separator">:</span>
+						<span class="lucky-item-content">职业规划</span>
+					</div>
+				</div>
+
+				<div class="qrcode-section">
+					<div class="qrcode-title">
+						<span>✨</span>
+						<span>关注我们</span>
+						<span>✨</span>
+					</div>
+					<img class="qrcode-image"
+						src="https://mmbiz.qpic.cn/mmbiz_jpg/N75naMdLMAav8yjFKJ4geCzcBZfAXqq1A00UkkTXQYhRslMAqAFqkwhWlwlibkBFeRT6vQYzFjCgFhePl2U88Mg/640?wx_fmt=jpeg&amp;from=appmsg"
+						alt="关注二维码">
+					<div class="qrcode-text">
+						每日星座运势 | 星座解析 | 塔罗占卜<br>
+						♡ 关注一下，遇见更好的自己 ♡
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+
+
+	<button class="export-button" onclick="exportAllCards()">导出所有卡片</button>
+
+	<script>
+		async function exportAllCards() {
+			const cards = document.querySelectorAll('.zodiac-card');
+
+			for (let card of cards) {
+				try {
+					const canvas = await html2canvas(card, {
+						backgroundColor: null,
+						scale: 2,
+						logging: false,
+						allowTaint: true,
+						useCORS: true
+					});
+
+					const link = document.createElement('a');
+					link.download = `zodiac-${card.id}.png`;
+					link.href = canvas.toDataURL('image/png');
+					link.click();
+
+					// 添加一点延迟，避免浏览器同时下载多个文件
+					await new Promise(resolve => setTimeout(resolve, 500));
+				} catch (error) {
+					console.error('导出失败:', error);
+				}
+			}
+		}
+
+		// 动态添加装饰元素
+		document.querySelectorAll('.zodiac-card').forEach(card => {
+			const decoration = document.createElement('div');
+			decoration.className = 'star-decoration';
+
+			// 添加星星
+			for (let i = 0; i < 5; i++) {
+				const star = document.createElement('div');
+				star.className = 'star';
+				star.style.left = Math.random() * 100 + '%';
+				star.style.top = Math.random() * 100 + '%';
+				decoration.appendChild(star);
+			}
+
+			// 添加心形
+			for (let i = 0; i < 3; i++) {
+				const heart = document.createElement('div');
+				heart.className = 'heart';
+				heart.style.left = Math.random() * 100 + '%';
+				heart.style.top = Math.random() * 100 + '%';
+				decoration.appendChild(heart);
+			}
+
+			card.insertBefore(decoration, card.firstChild);
+		});
+	</script>
+</body>
+
+</html>
