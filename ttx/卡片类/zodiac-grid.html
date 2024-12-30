@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Zodiac Signs Grid</title>
 	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
 	<style>
 		/* 引入更多Google字体 */
 		@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Long+Cang&family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap');
@@ -15,6 +16,16 @@
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 		}
+		img.emoji {
+    height: 1em !important;
+    width: 1em !important;
+    margin: 0 .05em 0 .1em !important;
+    vertical-align: -0.1em !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    display: inline-block !important;
+    padding: 0 !important;
+}
 
 		.container {
 			max-width: 1200px;
@@ -64,6 +75,8 @@
 		}
 
 		.zodiac-icon {
+			display: inline-flex;
+			align-items: center;
 			font-size: 28px;
 		}
 
@@ -125,10 +138,8 @@
 
 		.fortune-item-content strong {
 			font-weight: 500;
-			color: transparent;
-			background: linear-gradient(45deg, #ff6ba6, #ff9ec3);
-			-webkit-background-clip: text;
-			padding: 0 2px;
+			color: #ff6ba6;
+			text-shadow: 0 0 1px rgba(255, 107, 166, 0.2);
 		}
 
 		.lucky-tips {
@@ -225,10 +236,10 @@
 		}
 
 		.fortune-item-emoji {
+			display: inline-flex;
+			align-items: center;
 			font-size: 24px;
 			margin-right: 10px;
-			filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.3));
-			transform: translateY(-1px);
 		}
 
 		.lucky-label {
@@ -331,6 +342,43 @@
 			filter: blur(4px);
 			opacity: 0.3;
 			color: #ff9ec3;
+		}
+
+		/* 单个卡片导出按钮样式 */
+		.card-export-button {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			padding: 8px 12px;
+			background: rgba(255, 107, 166, 0.9);
+			color: white;
+			border: none;
+			border-radius: 15px;
+			cursor: pointer;
+			font-size: 13px;
+			opacity: 0;
+			transform: translateY(-5px);
+			transition: all 0.3s ease;
+			z-index: 10;
+			backdrop-filter: blur(4px);
+			box-shadow: 0 2px 8px rgba(255, 107, 166, 0.2);
+		}
+
+		.card-export-button:hover {
+			background: rgba(255, 107, 166, 1);
+			transform: translateY(-5px) scale(1.05);
+			box-shadow: 0 4px 12px rgba(255, 107, 166, 0.3);
+		}
+
+		/* 调整卡片容器为相对定位 */
+		.zodiac-card {
+			position: relative;
+		}
+
+		/* 鼠标悬浮时显示按钮 */
+		.zodiac-card:hover .card-export-button {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	</style>
 </head>
@@ -1657,11 +1705,74 @@
 	<button class="export-button" onclick="exportAllCards()">导出所有卡片</button>
 
 	<script>
+		// 为每个卡片添加导出按钮
+		document.querySelectorAll('.zodiac-card').forEach(card => {
+			const exportBtn = document.createElement('button');
+			exportBtn.className = 'card-export-button';
+			exportBtn.innerHTML = '导出卡片';
+			exportBtn.onclick = (e) => {
+				e.stopPropagation(); // 防止事件冒泡
+				exportSingleCard(card);
+			};
+			card.appendChild(exportBtn);
+		});
+
+		// 单个卡片导出函数
+		async function exportSingleCard(card) {
+			try {
+				// 临时隐藏导出按钮
+				const exportBtn = card.querySelector('.card-export-button');
+				exportBtn.style.display = 'none';
+
+				// 处理加粗文本
+				card.querySelectorAll('strong').forEach(el => {
+					el.classList.add('exporting');
+				});
+
+				const canvas = await html2canvas(card, {
+					backgroundColor: null,
+					scale: 2,
+					logging: false,
+					allowTaint: true,
+					useCORS: true
+				});
+
+				// 恢复加粗文本样式
+				card.querySelectorAll('strong').forEach(el => {
+					el.classList.remove('exporting');
+				});
+
+				// 恢复导出按钮
+				exportBtn.style.display = '';
+
+				// 下载图片
+				const link = document.createElement('a');
+				link.download = `zodiac-${card.id}.png`;
+				link.href = canvas.toDataURL('image/png');
+				link.click();
+
+			} catch (error) {
+				console.error('导出失败:', error);
+				// 确保按钮恢复显示
+				card.querySelector('.card-export-button').style.display = '';
+			}
+		}
+
+		// 修改原有的批量导出函数
 		async function exportAllCards() {
 			const cards = document.querySelectorAll('.zodiac-card');
+			
+			// 临时隐藏所有导出按钮
+			document.querySelectorAll('.card-export-button').forEach(btn => {
+				btn.style.display = 'none';
+			});
 
 			for (let card of cards) {
 				try {
+					card.querySelectorAll('strong').forEach(el => {
+						el.classList.add('exporting');
+					});
+
 					const canvas = await html2canvas(card, {
 						backgroundColor: null,
 						scale: 2,
@@ -1670,17 +1781,25 @@
 						useCORS: true
 					});
 
+					card.querySelectorAll('strong').forEach(el => {
+						el.classList.remove('exporting');
+					});
+
 					const link = document.createElement('a');
 					link.download = `zodiac-${card.id}.png`;
 					link.href = canvas.toDataURL('image/png');
 					link.click();
 
-					// 添加一点延迟，避免浏览器同时下载多个文件
 					await new Promise(resolve => setTimeout(resolve, 500));
 				} catch (error) {
 					console.error('导出失败:', error);
 				}
 			}
+
+			// 恢复所有导出按钮
+			document.querySelectorAll('.card-export-button').forEach(btn => {
+				btn.style.display = '';
+			});
 		}
 
 		// 动态添加装饰元素
@@ -1708,6 +1827,18 @@
 
 			card.insertBefore(decoration, card.firstChild);
 		});
+
+		// 在现有脚本末尾添加 Twemoji 解析
+		window.onload = function() {
+			// 解析所有 emoji
+			twemoji.parse(document.body, {
+				// folder: 'svg',
+				// ext: '.svg',
+				base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0.0/assets/'
+			});
+			
+			// 其他现有的初始化代码...
+		}
 	</script>
 </body>
 
